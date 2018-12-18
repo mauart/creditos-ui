@@ -1,1 +1,32 @@
+@import './variables';
+
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/mixins';
+
+
+html body {
+  overflow-y: scroll;
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  font-family: 'Helvetica Neue', Roboto, 'Helvetica', sans-serif;
+  text-rendering: optimizeLegibility;
+  //font-weight: 500;
+  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+}
+
+// Clear placeholder text on focus
+/* WebKit browsers */
+input:focus::-webkit-input-placeholder { color:transparent; }
+
+/* Mozilla Firefox 4 to 18 */
+input:focus:-moz-placeholder { color:transparent; }
+
+/* Mozilla Firefox 19+ */
+input:focus::-moz-placeholder { color:transparent; }
+
+/* Internet Explorer 10+ */
+input:focus:-ms-input-placeholder { color:transparent; }
+

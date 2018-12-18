@@ -1,0 +1,13 @@
+export const environment = {
+  production: $PRODUCTION,
+  HOME_URI: '$HOME_URI',
+  VERSION: '$VERSION',
+  FIREBASE: {
+    apiKey: '$FIRE_APIKEY',
+    authDomain: '$FIRE_AUTHDOMAIN',
+    databaseURL: '$FIRE_DB',
+    projectId: '$FIRE_PROJECTID',
+    storageBucket: '$FIRE_STOREBUCKET',
+    messagingSenderId: '$FIRE_MSGID'
+  }
+};
