@@ -17,6 +17,85 @@ html body {
   //-webkit-font-smoothing: antialiased;
 }
 
+.nav-pills .nav-link.active {
+  background-color: #FFB441;
+  min-width: 150px;
+}
+.footer {
+  //position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-weight: 300;
+  background-color: #E9E9E9;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #3E7EBE;
+  border-color: #3E7EBE;
+  height: 40px;
+}
+
+.btn-outline-primary {
+  color: #3E7EBE;
+  border-color: #3E7EBE;
+  height: 40px;
+}
+
+.btn-outline-primary:hover {
+  color: #ffffff;
+  background-color: #3E7EBE;
+  height: 40px;
+}
+a, a.nav-link {
+  color: #3E7EBE;
+}
+
+a, a.nav-link:hover {
+  color: #2565A5;
+}
+
+.navbar-brand.fixed-theme,
+.navbar-container.fixed-theme,
+.navbar.navbar-fixed-top.fixed-theme,
+.navbar-brand,
+.navbar-container{
+  transition: 0.8s;
+  -webkit-transition:  0.8s;
+}
+
+.container-fluid {
+  width: 94%;
+}
+
+/* animation of the modal */
+@keyframes modal-anim {
+  0%    {
+    transform: scale(.85,.85);
+    opacity: 0;
+  }
+  100%  {
+    transform: scale(1,1);
+    opacity:1;
+  }
+}
+
+/* animation for the tint screen */
+@keyframes fade-anim {
+  0%    {
+    background-color:rgba(0,0,0,0);
+  }
+  100%  {
+    background-color: rgba(0,0,0,.35);
+  }
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
 // Clear placeholder text on focus
 /* WebKit browsers */
 input:focus::-webkit-input-placeholder { color:transparent; }

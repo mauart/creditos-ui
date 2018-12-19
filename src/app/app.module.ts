@@ -18,11 +18,19 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoggedInGuard } from './services/logged-in.guard';
+import { HomeComponent } from './home/home.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { SolicitudesComponent } from './solicitudes/solicitudes.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const config = environment.FIREBASE;
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    UsuariosComponent,
+    SolicitudesComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

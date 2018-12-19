@@ -1,0 +1,36 @@
+header {
+  min-height: 50px;
+  width: 100%;
+}
+footer {
+  height: 2rem;
+  width: 100%;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+nav-text {
+  font-size: 20px;
+  line-height:20px;
+  margin: 0 5px;
+  display: block;
+  line-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.navbar {
+  height: 3rem;
+  background-color: #9a9a9a;
+  padding: 0rem 1rem;
+}
+label.q-switch-label{
+  background-color: red;
+}
+
+.custom_button{
+  background-color: red;
+}
