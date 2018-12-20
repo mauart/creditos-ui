@@ -1,1 +1,68 @@
-<router-outlet></router-outlet>
+<div>
+  <ng-sidebar-container style="position: unset;">
+    <ng-sidebar
+      opened="true"
+      mode="push"
+      animate="true"
+      [sidebarClass]="'demo-sidebar'"
+      [ariaLabel]="'My sidebar'">
+
+      <div class="main__elements">
+        <div>
+          <img class="main__logo" src="assets/img/apphub-logo.png">
+          <h1 class="logo__text">Creditos</h1>
+          <hr/>
+        </div>
+        <nav>
+          <div>
+            <button
+              class="btn btn-primary principal__menu-item">Home
+            </button>
+          </div>
+          <br/>
+          <div>
+            <span class="badge outer__badge">6</span>
+            <button
+              type="button"
+              class="btn btn-primary principal__menu-item">
+              Service Now
+              <span class="badge">6</span>
+            </button>
+          </div>
+          <br/>
+          <div>
+            <img src="assets/img/Concur-Normal.png" class="menu__img">
+            <button type="button" class="btn btn-primary principal__menu-item">Concur
+            </button>
+          </div>
+          <br/>
+          <div>
+            <img src="assets/img/ComingSoon-Normal.png" class="menu__img">
+            <button type="button" class="btn btn-primary principal__menu-item">Invoices</button>
+          </div>
+          <br/>
+          <a>
+            <img src="assets/img/ComingSoon-Normal.png" class="menu__img">
+            <button type="button" class="btn btn-primary principal__menu-item">Ariba</button>
+          </a>
+        </nav>
+      </div>
+    </ng-sidebar>
+    <div class="desktop__height" ng-sidebar-content style="background-color: #f4f4f4;">
+      <header class="demo-header">
+        <img src="assets/img/user.png" class="right__aligner"/>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownUser" ngbDropdownToggle>Lou Sacco</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">Action - 1</button>
+            <button class="dropdown-item">Action - 2</button>
+            <button class="dropdown-item">Sign out</button>
+          </div>
+        </div>
+      </header>
+      <div class="container" style="margin-top: 50px;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </ng-sidebar-container>
+</div>
