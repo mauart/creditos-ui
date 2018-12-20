@@ -95,7 +95,9 @@ a, a.nav-link:hover {
 .form-control:focus {
   box-shadow: none;
 }
-
+div.ng-sidebar__content {
+  background-color: #f4f4f4;
+}
 // Clear placeholder text on focus
 /* WebKit browsers */
 input:focus::-webkit-input-placeholder { color:transparent; }

@@ -13,15 +13,16 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 // Pages - Components
 import { AppComponent } from './app.component';
-
-// Internal modules
-
-import { AppRoutingModule } from './app-routing.module';
-import { LoggedInGuard } from './services/logged-in.guard';
 import { HomeComponent } from './home/home.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+
+// Internal modules
+import { AppRoutingModule } from './app-routing.module';
+import { LoggedInGuard } from './services/logged-in.guard';
+import { SidebarModule } from 'ng-sidebar';
+
 
 const config = environment.FIREBASE;
 @NgModule({
@@ -40,7 +41,9 @@ const config = environment.FIREBASE;
     AngularFirestoreModule,
     FormsModule,
     AppRoutingModule,
+    SidebarModule.forRoot(),
     NgbModule
+
   ],
   providers: [LoggedInGuard],
   bootstrap: [AppComponent]
