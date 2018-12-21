@@ -5,12 +5,14 @@ import { LoggedInGuard } from './services/logged-in.guard';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProductosConveniosComponent } from './productos-convenios/productos-convenios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
   { path: 'home', component: HomeComponent, canActivate: [ LoggedInGuard ] },
   { path: 'solicitudes', component: SolicitudesComponent, canActivate: [ LoggedInGuard ] },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [ LoggedInGuard ] },
+  { path: 'prod-conv', component: ProductosConveniosComponent, canActivate: [ LoggedInGuard ] },
   { path: 'signin', component: SignInComponent },
 ];
 

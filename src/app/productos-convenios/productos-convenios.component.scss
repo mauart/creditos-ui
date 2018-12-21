@@ -11,3 +11,9 @@ button {
 .btn.focus {
   color: #3E7EBE;
 }
+.nav.nav-tabs.justify-content-start {
+  font-size: 1.5rem;
+}
+::ng-deep .nav-item {
+  width: 150px;
+}

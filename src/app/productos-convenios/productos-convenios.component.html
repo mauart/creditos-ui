@@ -1,0 +1,19 @@
+<div style="float: right">
+  <button class="btn btn-primary">Nuevo</button>
+  <button class="btn btn-primary" style="margin-right: 5px; margin-left: 5px">Editar</button>
+  <button class="btn btn-primary">Modificar</button>
+</div>
+<div style="margin-top: 60px">
+  <ngb-tabset>
+    <ngb-tab title="Activos">
+      <ng-template ngbTabContent>
+        <app-productos-convenios-tabla></app-productos-convenios-tabla>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Inactivos">
+      <ng-template ngbTabContent>
+        <app-productos-convenios-tabla></app-productos-convenios-tabla>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

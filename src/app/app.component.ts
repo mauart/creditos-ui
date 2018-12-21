@@ -41,4 +41,8 @@ export class AppComponent implements OnInit {
     console.log('redirecting to usuarios');
     this.router.navigate(['/usuarios']);
   }
+  onProdConvenios() {
+    console.log('redirecting to productos/convenios');
+    this.router.navigate(['/prod-conv']);
+  }
 }
