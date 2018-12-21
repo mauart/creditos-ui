@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     this.authService.authStateChange()
       .subscribe((data) => {
         if (data) {
-          this.router.navigate(['/'], {relativeTo: this.route});
+          this.router.navigate(['/home'], {relativeTo: this.route});
           this.id = this.authService.getActiveUser().email.split('@')[0];
         } else {
           this.router.navigate(['signin'], {relativeTo: this.route});
@@ -28,5 +28,17 @@ export class AppComponent implements OnInit {
         this.router.navigate(['signin'], {relativeTo: this.route});
         console.log(error);
       });
+  }
+  onSolicitudes() {
+    console.log('redirecting to solicitudes');
+    this.router.navigate(['/solicitudes']);
+  }
+  onHome() {
+    console.log('redirecting to home');
+    this.router.navigate(['/home']);
+  }
+  onUsuarios() {
+    console.log('redirecting to usuarios');
+    this.router.navigate(['/usuarios']);
   }
 }

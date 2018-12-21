@@ -22,6 +22,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoggedInGuard } from './services/logged-in.guard';
 import { SidebarModule } from 'ng-sidebar';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { SolicitudesTablaComponent } from './solicitudes/solicitudes-tabla/solicitudes-tabla.component';
 
 
 const config = environment.FIREBASE;
@@ -31,7 +33,8 @@ const config = environment.FIREBASE;
     HomeComponent,
     UsuariosComponent,
     SolicitudesComponent,
-    SignInComponent
+    SignInComponent,
+    SolicitudesTablaComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ const config = environment.FIREBASE;
     FormsModule,
     AppRoutingModule,
     SidebarModule.forRoot(),
+    Ng2TableModule,
     NgbModule
 
   ],

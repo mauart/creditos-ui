@@ -1,3 +1,39 @@
-<p>
-  solicitudes works!
-</p>
+<div style="float: right">
+  <button class="btn btn-primary">Nueva</button>
+  <button class="btn btn-primary" style="margin-right: 5px; margin-left: 5px">Editar</button>
+  <button class="btn btn-primary">Modificar</button>
+</div>
+<div style="margin-top: 60px">
+  <ngb-tabset>
+    <ngb-tab title="Nueva">
+      <ng-template ngbTabContent>
+        <app-solicitudes-tabla></app-solicitudes-tabla>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="En Proceso">
+      <ng-template ngbTabContent>
+        <app-solicitudes-tabla></app-solicitudes-tabla>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Atrasada">
+      <ng-template ngbTabContent>
+        <app-solicitudes-tabla></app-solicitudes-tabla>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Incidencia/Rechazo">
+      <ng-template ngbTabContent>
+        <app-solicitudes-tabla></app-solicitudes-tabla>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Autorizado">
+      <ng-template ngbTabContent>
+        <app-solicitudes-tabla></app-solicitudes-tabla>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Cerrada">
+      <ng-template ngbTabContent>
+        <app-solicitudes-tabla></app-solicitudes-tabla>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
