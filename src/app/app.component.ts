@@ -33,6 +33,10 @@ export class AppComponent implements OnInit {
     console.log('redirecting to solicitudes');
     this.router.navigate(['/solicitudes']);
   }
+  onSolicitantes() {
+    console.log('redirecting to solicitantes');
+    this.router.navigate(['/solicitantes']);
+  }
   onHome() {
     console.log('redirecting to home');
     this.router.navigate(['/home']);

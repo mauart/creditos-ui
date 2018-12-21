@@ -26,6 +26,8 @@ import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { SolicitudesTablaComponent } from './solicitudes/solicitudes-tabla/solicitudes-tabla.component';
 import { ProductosConveniosComponent } from './productos-convenios/productos-convenios.component';
 import { ProductosConveniosTablaComponent } from './productos-convenios/productos-convenios-tabla/productos-convenios-tabla.component';
+import { SolicitantesComponent } from './solicitantes/solicitantes.component';
+import { SolicitantesTablaComponent } from './solicitantes/solicitantes-tabla/solicitantes-tabla.component';
 
 
 const config = environment.FIREBASE;
@@ -38,7 +40,9 @@ const config = environment.FIREBASE;
     SignInComponent,
     SolicitudesTablaComponent,
     ProductosConveniosComponent,
-    ProductosConveniosTablaComponent
+    ProductosConveniosTablaComponent,
+    SolicitantesComponent,
+    SolicitantesTablaComponent
   ],
   imports: [
     BrowserModule,
