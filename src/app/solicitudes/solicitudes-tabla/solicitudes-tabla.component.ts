@@ -105,7 +105,7 @@ export class SolicitudesTablaComponent implements OnInit {
     }
 
     // simple sorting
-    return data.sort((previous:any, current:any) => {
+    return data.sort((previous: any, current: any) => {
       if (previous[columnName] > current[columnName]) {
         return sort === 'desc' ? -1 : 1;
       } else if (previous[columnName] < current[columnName]) {
@@ -151,7 +151,7 @@ export class SolicitudesTablaComponent implements OnInit {
     return filteredData;
   }
 
-  public onChangeTable(config: any, page: any = {page: this.page, itemsPerPage: this.itemsPerPage}):any {
+  public onChangeTable(config: any, page: any = {page: this.page, itemsPerPage: this.itemsPerPage}): any {
     if (config.filtering) {
       Object.assign(this.config.filtering, config.filtering);
     }
