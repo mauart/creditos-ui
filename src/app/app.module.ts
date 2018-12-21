@@ -24,6 +24,8 @@ import { LoggedInGuard } from './services/logged-in.guard';
 import { SidebarModule } from 'ng-sidebar';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { SolicitudesTablaComponent } from './solicitudes/solicitudes-tabla/solicitudes-tabla.component';
+import { ProductosConveniosComponent } from './productos-convenios/productos-convenios.component';
+import { ProductosConveniosTablaComponent } from './productos-convenios/productos-convenios-tabla/productos-convenios-tabla.component';
 
 
 const config = environment.FIREBASE;
@@ -34,7 +36,9 @@ const config = environment.FIREBASE;
     UsuariosComponent,
     SolicitudesComponent,
     SignInComponent,
-    SolicitudesTablaComponent
+    SolicitudesTablaComponent,
+    ProductosConveniosComponent,
+    ProductosConveniosTablaComponent
   ],
   imports: [
     BrowserModule,
