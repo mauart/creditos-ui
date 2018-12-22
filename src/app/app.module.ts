@@ -28,6 +28,8 @@ import { ProductosConveniosComponent } from './productos-convenios/productos-con
 import { ProductosConveniosTablaComponent } from './productos-convenios/productos-convenios-tabla/productos-convenios-tabla.component';
 import { SolicitantesComponent } from './solicitantes/solicitantes.component';
 import { SolicitantesTablaComponent } from './solicitantes/solicitantes-tabla/solicitantes-tabla.component';
+import { PlantillasComponent } from './plantillas/plantillas.component';
+import { PlantillasTablaComponent } from './plantillas/plantillas-tabla/plantillas-tabla.component';
 
 
 const config = environment.FIREBASE;
@@ -42,7 +44,9 @@ const config = environment.FIREBASE;
     ProductosConveniosComponent,
     ProductosConveniosTablaComponent,
     SolicitantesComponent,
-    SolicitantesTablaComponent
+    SolicitantesTablaComponent,
+    PlantillasComponent,
+    PlantillasTablaComponent
   ],
   imports: [
     BrowserModule,

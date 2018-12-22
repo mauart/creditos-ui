@@ -1,29 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-solicitantes-tabla',
-  templateUrl: './solicitantes-tabla.component.html',
-  styleUrls: ['./solicitantes-tabla.component.scss']
+  selector: 'app-plantillas-tabla',
+  templateUrl: './plantillas-tabla.component.html',
+  styleUrls: ['./plantillas-tabla.component.scss']
 })
-export class SolicitantesTablaComponent implements OnInit {
+export class PlantillasTablaComponent implements OnInit {
   public rows: Array<any> = [];
   public columns: Array<any> = [
-    {title: 'Nombre', name: 'nombre', filtering: {filterString: '', placeholder: 'Filtrar por nombre'}},
-    {title: 'Tipo Solicitante', name: 'tipo'},
-    {
-      title: 'Correo',
-      name: 'correo',
-      sort: 'asc',
-      filtering: {filterString: '', placeholder: 'Filtrar por correo'}
-    },
-    {title: 'Telefono', name: 'tel'},
-    {title: 'Colonia.', name: 'colonia'},
-    {title: 'Ciudad', name: 'ciudad'},
-    {title: 'Estado', name: 'estado'},
-
-    {title: 'Asesor', name: 'asesor'},
-    {title: 'Origen', name: 'origen'},
-    {title: 'Creacion', name: 'creacion'}
+    {title: 'Nombre', name: 'nombre', sort: 'asc', filtering: {filterString: '', placeholder: 'Filtrar por nombre'}},
+    {title: 'Tipo', name: 'tipo'},
+    {title: 'Enviar en status', name: 'status'},
+    {title: 'Activo', name: 'activo'}
   ];
   public page = 1;
   public itemsPerPage = 10;
@@ -42,40 +30,10 @@ export class SolicitantesTablaComponent implements OnInit {
     {
       'nombre': 'Victoria Cantrell',
       'tipo': 'nueva',
-      'correo': 'correo@gmail.com',
-      'tel': '9999999999',
-      'colonia': 'colonia 1',
-      'ciudad': 'ciudad 1',
-      'estado': 'estado 1',
-      'asesor': 'Miguel Felix',
-      'origen': 'web 1',
-      'creacion': '2018-07-01',
-
-
-
-    }, {
-      'nombre': 'Natalia Cantrell',
-      'tipo': 'nueva 1',
-      'correo': 'correo1@gmail.com',
-      'tel': '9999999998',
-      'colonia': 'colonia 2',
-      'ciudad': 'ciudad 2',
-      'estado': 'estado 2',
-      'asesor': 'Miguel Felix',
-      'origen': 'web 2',
-      'creacion': '2018-07-02',
-    }, {
-      'nombre': 'Kenna Cantrell',
-      'tipo': 'nueva 3',
-      'correo': 'correo3@gmail.com',
-      'tel': '9999999999',
-      'colonia': 'colonia 3',
-      'ciudad': 'ciudad 3',
-      'estado': 'estado 3',
-      'asesor': 'Miguel Felix',
-      'origen': 'web 3',
-      'creacion': '2018-07-03',
-    } ];
+      'status': 'vivo',
+      'activo': 'Activo',
+    }
+  ];
 
   public constructor() {
     this.length = this.data.length;
@@ -176,5 +134,4 @@ export class SolicitantesTablaComponent implements OnInit {
   public onCellClick(data: any): any {
     console.log(data);
   }
-
 }
