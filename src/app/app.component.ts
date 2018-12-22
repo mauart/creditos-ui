@@ -53,4 +53,8 @@ export class AppComponent implements OnInit {
     console.log('redirecting to plantillas');
     this.router.navigate(['/plantillas']);
   }
+  onReportes() {
+    console.log('redirecting to reportes');
+    this.router.navigate(['/reportes']);
+  }
 }

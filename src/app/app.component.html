@@ -30,7 +30,7 @@
             <button type="button" (click)="onPlantillas()" class="btn btn-primary principal__menu-item">Plantillas</button>
           </a>
           <a>
-            <button type="button" class="btn btn-primary principal__menu-item">Reportes</button>
+            <button type="button" (click)="onReportes()" class="btn btn-primary principal__menu-item">Reportes</button>
           </a>
           <a>
             <button type="button" (click)="onProdConvenios()" class="btn btn-primary principal__menu-item">Productos/Convenios</button>
@@ -42,7 +42,7 @@
       <header class="demo-header">
         <img src="assets/img/user.png" class="right__aligner"/>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdownUser" ngbDropdownToggle>mdchavez</button>
+          <button class="btn btn-outline-primary" id="dropdownUser" ngbDropdownToggle>mdchavez <sub><i>(admin)</i></sub></button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button class="dropdown-item">Action - 1</button>
             <button class="dropdown-item">Action - 2</button>
