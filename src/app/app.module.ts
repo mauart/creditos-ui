@@ -3,13 +3,20 @@ import { environment } from '../environments/environment';
 
 // Dependency Modules
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireAuthModule} from 'angularfire2/auth';
-import {AngularFirestoreModule} from 'angularfire2/firestore';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { SelectModule } from 'ng-select';
+
+// Internal modules
+import { AppRoutingModule } from './app-routing.module';
+import { LoggedInGuard } from './services/logged-in.guard';
+import { SidebarModule } from 'ng-sidebar';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
 
 // Pages - Components
 import { AppComponent } from './app.component';
@@ -17,12 +24,6 @@ import { HomeComponent } from './home/home.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-
-// Internal modules
-import { AppRoutingModule } from './app-routing.module';
-import { LoggedInGuard } from './services/logged-in.guard';
-import { SidebarModule } from 'ng-sidebar';
-import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { SolicitudesTablaComponent } from './solicitudes/solicitudes-tabla/solicitudes-tabla.component';
 import { ProductosConveniosComponent } from './productos-convenios/productos-convenios.component';
 import { ProductosConveniosTablaComponent } from './productos-convenios/productos-convenios-tabla/productos-convenios-tabla.component';
@@ -35,6 +36,7 @@ import { ReporteFinancieroComponent } from './reportes/reporte-financiero/report
 import { ReporteComisionesComponent } from './reportes/reporte-comisiones/reporte-comisiones.component';
 import { ReporteSolicitudesComponent } from './reportes/reporte-solicitudes/reporte-solicitudes.component';
 import { ReporteSolicitantesComponent } from './reportes/reporte-solicitantes/reporte-solicitantes.component';
+import { SolicitarCreditoComponent } from './solicitar-credito/solicitar-credito.component';
 
 
 const config = environment.FIREBASE;
@@ -56,7 +58,8 @@ const config = environment.FIREBASE;
     ReporteFinancieroComponent,
     ReporteComisionesComponent,
     ReporteSolicitudesComponent,
-    ReporteSolicitantesComponent
+    ReporteSolicitantesComponent,
+    SolicitarCreditoComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ const config = environment.FIREBASE;
     AppRoutingModule,
     SidebarModule.forRoot(),
     Ng2TableModule,
-    NgbModule
+    NgbModule,
+    SelectModule
 
   ],
   providers: [LoggedInGuard],

@@ -9,6 +9,7 @@ import { ProductosConveniosComponent } from './productos-convenios/productos-con
 import { SolicitantesComponent } from './solicitantes/solicitantes.component';
 import { PlantillasComponent } from './plantillas/plantillas.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { SolicitarCreditoComponent } from './solicitar-credito/solicitar-credito.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
@@ -18,10 +19,10 @@ const routes: Routes = [
       { path: 'usuarios', component: UsuariosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'prod-conv', component: ProductosConveniosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'plantillas', component: PlantillasComponent, canActivateChild: [ LoggedInGuard ] },
-      { path: 'reportes', component: ReportesComponent, canActivateChild: [ LoggedInGuard ] },
-      { path: 'reportes', component: ReportesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'reportes', component: ReportesComponent, canActivateChild: [ LoggedInGuard ] }
     ]
   },
+  { path: 'solicitarCredito', component: SolicitarCreditoComponent },
   { path: 'signin', component: SignInComponent },
 ];
 

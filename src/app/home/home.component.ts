@@ -8,12 +8,13 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  public id;
   constructor(private authService: AuthenticationService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.id = this.authService.getActiveUser().email.split('@')[0];
   }
   onSolicitudes() {
     console.log('redirecting to solicitudes');
