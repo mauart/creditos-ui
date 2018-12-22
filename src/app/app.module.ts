@@ -30,6 +30,11 @@ import { SolicitantesComponent } from './solicitantes/solicitantes.component';
 import { SolicitantesTablaComponent } from './solicitantes/solicitantes-tabla/solicitantes-tabla.component';
 import { PlantillasComponent } from './plantillas/plantillas.component';
 import { PlantillasTablaComponent } from './plantillas/plantillas-tabla/plantillas-tabla.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { ReporteFinancieroComponent } from './reportes/reporte-financiero/reporte-financiero.component';
+import { ReporteComisionesComponent } from './reportes/reporte-comisiones/reporte-comisiones.component';
+import { ReporteSolicitudesComponent } from './reportes/reporte-solicitudes/reporte-solicitudes.component';
+import { ReporteSolicitantesComponent } from './reportes/reporte-solicitantes/reporte-solicitantes.component';
 
 
 const config = environment.FIREBASE;
@@ -46,7 +51,12 @@ const config = environment.FIREBASE;
     SolicitantesComponent,
     SolicitantesTablaComponent,
     PlantillasComponent,
-    PlantillasTablaComponent
+    PlantillasTablaComponent,
+    ReportesComponent,
+    ReporteFinancieroComponent,
+    ReporteComisionesComponent,
+    ReporteSolicitudesComponent,
+    ReporteSolicitantesComponent
   ],
   imports: [
     BrowserModule,

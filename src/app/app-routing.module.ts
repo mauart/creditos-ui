@@ -8,6 +8,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosConveniosComponent } from './productos-convenios/productos-convenios.component';
 import { SolicitantesComponent } from './solicitantes/solicitantes.component';
 import { PlantillasComponent } from './plantillas/plantillas.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent, canActivate: [ LoggedInGuard ] },
   { path: 'prod-conv', component: ProductosConveniosComponent, canActivate: [ LoggedInGuard ] },
   { path: 'plantillas', component: PlantillasComponent, canActivate: [ LoggedInGuard ] },
+  { path: 'reportes', component: ReportesComponent, canActivate: [ LoggedInGuard ] },
   { path: 'signin', component: SignInComponent },
 ];
 
