@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
               private route: ActivatedRoute) {
     this.router.events.pipe(takeUntil(this.unsubs))
       .subscribe((ro) => {
-        if ((ro as any).url && !(ro as any).url.includes('solicitarCredito')) {
+        if ((ro as any).url && (!(ro as any).url.includes('dmz'))) {
           console.log((ro as any).url);
           this.a();
           this.unsubs.next(); // unsubscribe to stop loop
