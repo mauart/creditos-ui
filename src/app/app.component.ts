@@ -49,4 +49,8 @@ export class AppComponent implements OnInit {
     console.log('redirecting to productos/convenios');
     this.router.navigate(['/prod-conv']);
   }
+  onPlantillas() {
+    console.log('redirecting to plantillas');
+    this.router.navigate(['/plantillas']);
+  }
 }
