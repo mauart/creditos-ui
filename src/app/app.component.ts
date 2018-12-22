@@ -29,32 +29,4 @@ export class AppComponent implements OnInit {
         console.log(error);
       });
   }
-  onSolicitudes() {
-    console.log('redirecting to solicitudes');
-    this.router.navigate(['/solicitudes']);
-  }
-  onSolicitantes() {
-    console.log('redirecting to solicitantes');
-    this.router.navigate(['/solicitantes']);
-  }
-  onHome() {
-    console.log('redirecting to home');
-    this.router.navigate(['/home']);
-  }
-  onUsuarios() {
-    console.log('redirecting to usuarios');
-    this.router.navigate(['/usuarios']);
-  }
-  onProdConvenios() {
-    console.log('redirecting to productos/convenios');
-    this.router.navigate(['/prod-conv']);
-  }
-  onPlantillas() {
-    console.log('redirecting to plantillas');
-    this.router.navigate(['/plantillas']);
-  }
-  onReportes() {
-    console.log('redirecting to reportes');
-    this.router.navigate(['/reportes']);
-  }
 }

@@ -12,13 +12,16 @@ import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'home', component: HomeComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'solicitudes', component: SolicitudesComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'solicitantes', component: SolicitantesComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'usuarios', component: UsuariosComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'prod-conv', component: ProductosConveniosComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'plantillas', component: PlantillasComponent, canActivate: [ LoggedInGuard ] },
-  { path: 'reportes', component: ReportesComponent, canActivate: [ LoggedInGuard ] },
+  { path: 'home', component: HomeComponent, canActivate: [ LoggedInGuard ], children: [
+      { path: 'solicitudes', component: SolicitudesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'solicitantes', component: SolicitantesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'usuarios', component: UsuariosComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'prod-conv', component: ProductosConveniosComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'plantillas', component: PlantillasComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'reportes', component: ReportesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'reportes', component: ReportesComponent, canActivateChild: [ LoggedInGuard ] },
+    ]
+  },
   { path: 'signin', component: SignInComponent },
 ];
 
