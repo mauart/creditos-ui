@@ -41,6 +41,7 @@ import { CotizacionInicialComponent } from './cotizacion-inicial/cotizacion-inic
 import { CotizacionInicialTablaComponent } from './cotizacion-inicial/cotizacion-inicial-tabla/cotizacion-inicial-tabla.component';
 import { RecotizacionInicialComponent } from './recotizacion-inicial/recotizacion-inicial.component';
 import { RecotizacionInicialTablaComponent } from './recotizacion-inicial/recotizacion-inicial-tabla/recotizacion-inicial-tabla.component';
+import { CompraDeudaComponent } from './compra-deuda/compra-deuda.component';
 
 
 const config = environment.FIREBASE;
@@ -67,7 +68,8 @@ const config = environment.FIREBASE;
     CotizacionInicialComponent,
     CotizacionInicialTablaComponent,
     RecotizacionInicialComponent,
-    RecotizacionInicialTablaComponent
+    RecotizacionInicialTablaComponent,
+    CompraDeudaComponent
   ],
   imports: [
     BrowserModule,
