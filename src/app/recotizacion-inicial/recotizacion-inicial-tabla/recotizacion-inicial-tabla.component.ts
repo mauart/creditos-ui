@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-cotizacion-inicial-tabla',
-  templateUrl: './cotizacion-inicial-tabla.component.html',
-  styleUrls: ['./cotizacion-inicial-tabla.component.scss']
+  selector: 'app-recotizacion-inicial-tabla',
+  templateUrl: './recotizacion-inicial-tabla.component.html',
+  styleUrls: ['./recotizacion-inicial-tabla.component.scss']
 })
-export class CotizacionInicialTablaComponent implements OnInit {
+export class RecotizacionInicialTablaComponent implements OnInit {
   public rows: Array<any> = [];
   public columns: Array<any> = [
     {title: 'Plazo', name: 'plazo'},

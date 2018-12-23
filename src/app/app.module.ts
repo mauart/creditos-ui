@@ -39,6 +39,8 @@ import { ReporteSolicitantesComponent } from './reportes/reporte-solicitantes/re
 import { SolicitarCreditoComponent } from './solicitar-credito/solicitar-credito.component';
 import { CotizacionInicialComponent } from './cotizacion-inicial/cotizacion-inicial.component';
 import { CotizacionInicialTablaComponent } from './cotizacion-inicial/cotizacion-inicial-tabla/cotizacion-inicial-tabla.component';
+import { RecotizacionInicialComponent } from './recotizacion-inicial/recotizacion-inicial.component';
+import { RecotizacionInicialTablaComponent } from './recotizacion-inicial/recotizacion-inicial-tabla/recotizacion-inicial-tabla.component';
 
 
 const config = environment.FIREBASE;
@@ -63,7 +65,9 @@ const config = environment.FIREBASE;
     ReporteSolicitantesComponent,
     SolicitarCreditoComponent,
     CotizacionInicialComponent,
-    CotizacionInicialTablaComponent
+    CotizacionInicialTablaComponent,
+    RecotizacionInicialComponent,
+    RecotizacionInicialTablaComponent
   ],
   imports: [
     BrowserModule,

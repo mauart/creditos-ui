@@ -1,0 +1,104 @@
+<div class="image-container set-full-height" style="background-image: url('assets/img/wizard.jpg')">
+  <div class="logo-container">
+    <div class="logo">
+      <img src="assets/img/new_logo.png">
+    </div>
+    <div class="brand">
+      Creditos
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-2 pull__left">
+        <div class="wizard-container">
+
+          <div class="card wizard-card" id="wizardProfile">
+            <form>
+              <div class="wizard-header">
+                <h3>
+                  <b>Creditos</b> Re Cotizacion Inicial <br><br>
+                </h3>
+              </div>
+              <ngb-tabset>
+                <ngb-tab title="Re Cotizacion Inicial">
+                  <ng-template ngbTabContent>
+                    <div class="notes">
+                      <p>Descuento Maximo: $1000.00</p>
+                    </div>
+                    <app-recotizacion-inicial-tabla></app-recotizacion-inicial-tabla>
+                    <div class="form-group row" style="margin-top: 10px">
+                      <label for="interesCred" class="col-4 col-form-label">Me Interesa un credito<sup>*</sup>:</label>
+                      <div class="col-7">
+                        <ng-select id="interesCred"
+                                   [options]="interesCred"
+                                   [placeholder]="'Interesado en el credito'"
+                                   (selected)="onInteresSelected($event)"
+                                   [noFilter]="'Infinity'">
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="form-group row" style="margin-top: 20px">
+                      <label for="plazo" class="col-4 col-form-label">Plazo deseado<sup>*</sup>:</label>
+                      <div class="col-7">
+                        <ng-select id="plazo"
+                                   [options]="plazoDes"
+                                   [placeholder]="'Plazo deseado'"
+                                   (selected)="onPlazoSelected($event)"
+                                   [noFilter]="'Infinity'">
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="form-group row" style="margin-top: 20px">
+                      <label for="nombre" class="col-4 col-form-label">Nombre<sup>*</sup>:</label>
+                      <div class="col-7">
+                        <input class="form-control"
+                               type="text"
+                               [(ngModel)]="recotizacion.nombre"
+                               name="nombre"
+                               id="nombre">
+                      </div>
+                    </div>
+                    <div class="form-group row" style="margin-top: 20px">
+                      <label for="nss" class="col-4 col-form-label">Numero de seguro Social/Matricula<sup>*</sup>:</label>
+                      <div class="col-7">
+                        <input class="form-control"
+                               type="text"
+                               name="nss"
+                               [(ngModel)]="recotizacion.nss"
+                               id="nss">
+                      </div>
+                    </div>
+                    <div class="form-group row" style="margin-top: 20px">
+                      <label for="email" class="col-4 col-form-label">Correo electronico<sup>*</sup>:</label>
+                      <div class="col-7">
+                        <input class="form-control"
+                               type="email"
+                               name="email"
+                               [(ngModel)]="recotizacion.email"
+                               id="email">
+                      </div>
+                    </div>
+                    <div class="form-group row" style="margin-top: 20px">
+                      <label for="tel" class="col-4 col-form-label">Telefono<sup>*</sup>:</label>
+                      <div class="col-7">
+                        <input class="form-control"
+                               type="tel"
+                               name="tel"
+                               [(ngModel)]="recotizacion.tel"
+                               id="tel">
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" (click)="onReCotizar()">Me interesa un credito</button>
+                    <div class="notes">
+                      <p>Para solicitar un credito, deja tus datos y nos comunicaremos a la brevedad.</p>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+              </ngb-tabset>
+            </form>
+          </div>
+        </div> <!-- wizard container -->
+      </div>
+    </div><!-- end row -->
+  </div> <!--  big container -->
+</div>

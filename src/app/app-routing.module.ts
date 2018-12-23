@@ -11,6 +11,7 @@ import { PlantillasComponent } from './plantillas/plantillas.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { SolicitarCreditoComponent } from './solicitar-credito/solicitar-credito.component';
 import { CotizacionInicialComponent } from './cotizacion-inicial/cotizacion-inicial.component';
+import { RecotizacionInicialComponent } from './recotizacion-inicial/recotizacion-inicial.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
@@ -25,6 +26,7 @@ const routes: Routes = [
   },
   { path: 'dmz/solicitarCredito', component: SolicitarCreditoComponent },
   { path: 'dmz/cotizacionInicial', component: CotizacionInicialComponent },
+  { path: 'dmz/reCotizacionInicial', component: RecotizacionInicialComponent },
   { path: 'signin', component: SignInComponent },
 ];
 
