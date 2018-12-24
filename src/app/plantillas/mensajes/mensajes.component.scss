@@ -1,0 +1,20 @@
+label {
+  font-size: 1.4rem;
+  text-align: right;
+}
+button {
+  width: 100px;
+  height: 3.7rem;
+  font-size: 1.5rem;
+}
+.btn-o-primary:not(:disabled):not(.disabled):active, .btn-o-primary:not(:disabled):not(.disabled).active, .show > .btn-o-primary.dropdown-toggle {
+  background-color: #3E7EBE;
+  border-color: #3E7EBE;
+  outline: none;
+}
+.btn.focus {
+  color: #3E7EBE;
+}
+#espera, #activo, #status{
+  font-size: 12px;
+}

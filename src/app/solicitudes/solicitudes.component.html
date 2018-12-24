@@ -4,7 +4,7 @@
   <button class="btn btn-primary">Modificar</button>
 </div>
 <div style="margin-top: 60px">
-  <ngb-tabset>
+  <ngb-tabset #t (tabChange)="onTabChange(t)">
     <ngb-tab title="Nueva">
       <ng-template ngbTabContent>
         <app-solicitudes-tabla></app-solicitudes-tabla>

@@ -1,8 +1,8 @@
 <div style="float: right">
-  <button class="btn btn-primary">Nuevo</button>
+  <button class="btn btn-primary" (click)="onNuevo()">Nuevo</button>
 </div>
 <div style="margin-top: 60px">
-  <ngb-tabset>
+  <ngb-tabset #t (tabChange)="onTabChange(t.tabs._results, $event)">
     <ngb-tab title="Mensajes">
       <ng-template ngbTabContent>
         <app-plantillas-tabla></app-plantillas-tabla>

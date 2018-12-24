@@ -1,0 +1,116 @@
+<div style="float: right">
+  <button class="btn btn-warning mr-2" (click)="onCancel()">Cancel</button>
+  <button class="btn btn-primary" (click)="onGuardar()">Guardar</button>
+</div>
+<div style="margin-top: 100px; margin-bottom: 100px">
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="nombre" class="col-2 col-form-label">Nombre<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+             type="text"
+             name="nombre"
+             [(ngModel)]="correo.nombre"
+             id="nombre">
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="activo" class="col-2 col-form-label">Activo:</label>
+    <div class="col-7">
+      <ng-select id="activo"
+                 [options]="activoDropdown"
+                 [placeholder]="'Selecciona una opcion de activacion'"
+                 (selected)="onActivoSelected($event)"
+                 [noFilter]="'Infinity'">
+      </ng-select>
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="status" class="col-2 col-form-label">Enviar en status:</label>
+    <div class="col-7">
+      <ng-select id="status"
+                 [options]="statusDropdown"
+                 [placeholder]="'Selecciona un status'"
+                 (selected)="onStatusSelected($event)"
+                 [noFilter]="'Infinity'">
+      </ng-select>
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="espera" class="col-2 col-form-label">Tiempo de espera en cambio de status:</label>
+    <div class="col-7">
+      <ng-select id="espera"
+                 [options]="tiempoEsperaDropDown"
+                 [placeholder]="'Selecciona un status'"
+                 (selected)="onTiempoEsperaSelected($event)"
+                 [noFilter]="'Infinity'">
+      </ng-select>
+    </div>
+  </div>
+  <hr>
+  <h3>Datos del correo</h3>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="titulo" class="col-2 col-form-label">Titulo<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+             type="text"
+             name="titulo"
+             [(ngModel)]="correo.titulo"
+             id="titulo">
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="enviarA" class="col-2 col-form-label">Enviar a<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+             type="text"
+             name="enviarA"
+             [(ngModel)]="correo.enviarA"
+             id="enviarA">
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="copiaA" class="col-2 col-form-label">Copia A<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+             type="text"
+             name="copiaA"
+             [(ngModel)]="correo.copiaA"
+             id="copiaA">
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="texto" class="col-2 col-form-label">Texto<sup>*</sup>:</label>
+    <div class="col-7">
+      <textarea class="form-control"
+             name="texto"
+             [(ngModel)]="correo.texto"
+             [rows]="5"
+             id="texto">
+      </textarea>
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="anexo1" class="col-2 col-form-label">Anexo 1<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+                name="anexo1"
+                id="anexo1">
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="anexo2" class="col-2 col-form-label">Anexo 2<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+                name="anexo2"
+                id="anexo2">
+    </div>
+  </div>
+  <div class="form-group row" style="margin-top: 50px">
+    <label for="anexo3" class="col-2 col-form-label">Anexo 3<sup>*</sup>:</label>
+    <div class="col-7">
+      <input class="form-control"
+                name="anexo3"
+                id="anexo3">
+    </div>
+  </div>
+</div>

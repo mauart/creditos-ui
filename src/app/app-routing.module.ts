@@ -13,6 +13,8 @@ import { SolicitarCreditoComponent } from './solicitar-credito/solicitar-credito
 import { CotizacionInicialComponent } from './cotizacion-inicial/cotizacion-inicial.component';
 import { RecotizacionInicialComponent } from './recotizacion-inicial/recotizacion-inicial.component';
 import {CompraDeudaComponent} from './compra-deuda/compra-deuda.component';
+import {MensajesComponent} from './plantillas/mensajes/mensajes.component';
+import {CorreosComponent} from './plantillas/correos/correos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: 'usuarios', component: UsuariosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'prod-conv', component: ProductosConveniosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'plantillas', component: PlantillasComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'plantilla/mensaje', component: MensajesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'plantilla/correo', component: CorreosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'reportes', component: ReportesComponent, canActivateChild: [ LoggedInGuard ] }
     ]
   },
