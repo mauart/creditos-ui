@@ -1,0 +1,63 @@
+<div style="float: right">
+  <button class="btn btn-warning mr-2" (click)="onCancel()">Cancel</button>
+  <button class="btn btn-primary" (click)="onGuardar()">Guardar</button>
+</div>
+<form>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="form-group row" style="margin-top: 50px">
+      <label for="nombre" class="col-2 col-form-label">Nombre<sup>*</sup>:</label>
+      <div class="col-7">
+        <input class="form-control"
+               type="text"
+               name="nombre"
+               [(ngModel)]="mensaje.nombre"
+               id="nombre">
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 50px">
+      <label for="activo" class="col-2 col-form-label">Activo:</label>
+      <div class="col-7">
+        <ng-select id="activo"
+                   [options]="activoDropdown"
+                   [placeholder]="'Selecciona una opcion de activacion'"
+                   (selected)="onActivoSelected($event)"
+                   [noFilter]="'Infinity'">
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 50px">
+      <label for="status" class="col-2 col-form-label">Enviar en status:</label>
+      <div class="col-7">
+        <ng-select id="status"
+                   [options]="statusDropdown"
+                   [placeholder]="'Selecciona un status'"
+                   (selected)="onStatusSelected($event)"
+                   [noFilter]="'Infinity'">
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 50px">
+      <label for="espera" class="col-2 col-form-label">Tiempo de espera en cambio de status:</label>
+      <div class="col-7">
+        <ng-select id="espera"
+                   [options]="tiempoEsperaDropDown"
+                   [placeholder]="'Selecciona un status'"
+                   (selected)="onTiempoEsperaSelected($event)"
+                   [noFilter]="'Infinity'">
+        </ng-select>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 50px">
+      <label for="mensaje" class="col-2 col-form-label">Mensaje<sup>*</sup>:</label>
+      <div class="col-7">
+        <textarea class="form-control"
+                  name="mensaje"
+                  [(ngModel)]="mensaje.mensaje"
+                  [rows]="5"
+                  id="mensaje">
+        </textarea>
+      </div>
+    </div>
+  </div>
+</form>
+

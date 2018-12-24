@@ -17,5 +17,7 @@ export class SolicitudesComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onTabChange(t) {
+    console.log(t);
+  }
 }
