@@ -1,0 +1,878 @@
+<div style="float: right">
+  <button class="btn btn-warning" (click)="onCancelar()">Cancelar</button>
+  <button class="btn btn-primary" style="margin-left: 5px">Guardar</button>
+</div>
+<form>
+  <div style="margin-top: 60px">
+    <ngb-tabset #t (tabChange)="onTabChange(t)">
+      <ngb-tab title="Solicitud">
+        <ng-template ngbTabContent>
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" [closeOthers]="true">
+            <ngb-panel title="Parte 1">
+              <ng-template ngbPanelContent>
+                <!-- First row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Estado form input-->
+                  <div class="col-4 row">
+                    <label for="estado" class="col-3 col-form-label">Estado:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="estado"
+                             id="estado">
+                    </div>
+                  </div>
+                  <!--Origen form input-->
+                  <div class="col-4 row">
+                    <label for="origen" class="col-3 col-form-label">Origen:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="origen"
+                             id="origen">
+                    </div>
+                  </div>
+                </div>
+                <!--Second row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Fecha de creacion form input-->
+                  <div class="col-4 row">
+                    <label for="fCreacion" class="col-3 col-form-label">Creacion:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="fCreacion"
+                             id="fCreacion">
+                    </div>
+                  </div>
+                  <!--Fecha solicitud form input-->
+                  <div class="col-4 row">
+                    <label for="fechaolicitud" class="col-3 col-form-label">Inicio solicitud:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="fechaolicitud"
+                             id="fechaolicitud">
+                    </div>
+                  </div>
+                  <!--Fecha solicitud completada form input-->
+                  <div class="col-4 row">
+                    <label for="fechaSolCom" class="col-3 col-form-label">Solicitud terminada:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="fechaSolCom"
+                             id="fechaSolCom">
+                    </div>
+                  </div>
+                </div>
+                <!-- Third row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Tipo form input-->
+                  <div class="col-4 row">
+                    <label for="tipo" class="col-3 col-form-label">Tipo:</label>
+                    <div class="col-9">
+                      <ng-select id="tipo"
+                                 [options]="tipoDropdown"
+                                 [placeholder]="'Selecciona un tipo'"
+                                 (selected)="onTipoSelected($event)"
+                                 [noFilter]="'Infinity'">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <!--Periodo form input-->
+                  <div class="col-4 row">
+                    <label for="periodo" class="col-3 col-form-label">Periodo:</label>
+                    <div class="col-9">
+                      <ng-select id="periodo"
+                                 [options]="periodoDropdown"
+                                 [placeholder]="'Selecciona un periodo'"
+                                 (selected)="onTipoSelected($event)"
+                                 [noFilter]="'Infinity'">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <!--Plazo form input-->
+                  <div class="col-4 row">
+                    <label for="periodo" class="col-3 col-form-label">Plazo:</label>
+                    <div class="col-9">
+                      <ng-select id="plazo"
+                                 [options]="plazoDropdown"
+                                 [placeholder]="'Selecciona un plazo'"
+                                 (selected)="onTipoSelected($event)"
+                                 [noFilter]="'Infinity'">
+                      </ng-select>
+                    </div>
+                  </div>
+                </div>
+                <!--Fourth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Monto solicitado form input-->
+                  <div class="col-4 row">
+                    <label for="montoSol" class="col-3 col-form-label">Monto solicitado:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="number"
+                             name="montoSol"
+                             id="montoSol">
+                    </div>
+                  </div>
+                  <!-- descuento form input-->
+                  <div class="col-4 row">
+                    <label for="descuento" class="col-3 col-form-label">Descuento:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="number"
+                             name="descuento"
+                             id="descuento">
+                    </div>
+                  </div>
+                  <!-- Pagare completada form input -->
+                  <div class="col-4 row">
+                    <label for="pagare" class="col-3 col-form-label">Pagare:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="number"
+                             name="pagare"
+                             id="pagare">
+                    </div>
+                  </div>
+                </div>
+                <!--Fifth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Producto form input-->
+                  <div class="col-4 row">
+                    <label for="producto" class="col-3 col-form-label">Producto:</label>
+                    <div class="col-9">
+                      <ng-select id="producto"
+                                 [options]="productoDropdown"
+                                 [placeholder]="'Selecciona un producto'"
+                                 (selected)="onTipoSelected($event)"
+                                 [noFilter]="'Infinity'">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <!--NSS form input-->
+                  <div class="col-4 row">
+                    <label for="nss" class="col-3 col-form-label">NSS:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="nss"
+                             id="nss">
+                    </div>
+                  </div>
+                  <!--Matricula form input-->
+                  <div class="col-4 row">
+                    <label for="matricula" class="col-3 col-form-label">Matricula:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="matricula"
+                             id="matricula">
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Parte 2">
+              <ng-template ngbPanelContent>
+                <!--First row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Grupo form input-->
+                  <div class="col-4 row">
+                    <label for="grupo" class="col-3 col-form-label">Grupo:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="text"
+                             name="grupo"
+                             id="grupo">
+                    </div>
+                  </div>
+                  <!--Dependencia form input-->
+                  <div class="col-4 row">
+                    <label for="dependencia" class="col-4 col-form-label">Dependencia:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="dependencia"
+                             id="dependencia">
+                    </div>
+                  </div>
+                </div>
+                <!--Second row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <!--Tasa mensual form input-->
+                    <label for="tasaMensual" class="col-3 col-form-label">Tasa Mensual:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="number"
+                             name="tasaMensual"
+                             id="tasaMensual">
+                    </div>
+                  </div>
+                  <!--Tasa anual form input-->
+                  <div class="col-4 row">
+                    <label for="tasaAnual" class="col-3 col-form-label">Tasa Anual:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="number"
+                             name="tasaAnual"
+                             id="tasaAnual">
+                    </div>
+                  </div>
+                  <!--CAT form input-->
+                  <div class="col-4 row">
+                    <label for="cat" class="col-3 col-form-label">CAT:</label>
+                    <div class="col-9">
+                      <input class="form-control"
+                             type="number"
+                             name="cat"
+                             id="cat">
+                    </div>
+                  </div>
+                </div>
+                <!--Third row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Primer pago form input-->
+                  <div class="col-4 row">
+                    <label for="primerPago" class="col-4 col-form-label">Primer pago:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="primerPago"
+                             id="primerPago">
+                    </div>
+                  </div>
+                  <!--Ultimo pago form input-->
+                  <div class="col-4 row">
+                    <label for="ultimo" class="col-4 col-form-label">Ultimo pago:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="ultimo"
+                             id="ultimo">
+                    </div>
+                  </div>
+                </div>
+                <!--Forth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Primer pago form input-->
+                  <div class="col-4 row">
+                    <label for="liquidoBase" class="col-4 col-form-label">Liquido base:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="liquidoBase"
+                             id="liquidoBase">
+                    </div>
+                  </div>
+                  <!--Capacidad de pago-->
+                  <div class="col-4 row">
+                    <label for="capacidadPago" class="col-4 col-form-label">Capacidad de pago:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="capacidadPago"
+                             id="capacidadPago">
+                    </div>
+                  </div>
+                </div>
+                <!--fifth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Capacidad de pago form input-->
+                  <div class="col-4 row">
+                    <label for="montoDeducciones" class="col-4 col-form-label">Monto deducciones:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="number"
+                             name="montoDeducciones"
+                             id="montoDeducciones">
+                    </div>
+                  </div>
+                  <!--Termino deducciones form input-->
+                  <div class="col-4 row">
+                    <label for="terminoDeducciones" class="col-4 col-form-label">Termino deducciones:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="terminoDeducciones"
+                             id="terminoDeducciones">
+                    </div>
+                  </div>
+                </div>
+                <!--Sixth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--Financiera form input-->
+                  <div class="col-4 row">
+                    <label for="financiera" class="col-4 col-form-label">Financiera:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="financiera"
+                             id="financiera">
+                    </div>
+                  </div>
+                  <!--Producto Financiera form input-->
+                  <div class="col-4 row">
+                    <label for="financieraProducto" class="col-4 col-form-label">Producto:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="financieraProducto"
+                             id="financieraProducto">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="convenio" class="col-4 col-form-label">Convenio:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="convenio"
+                             id="convenio">
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Datos Solicitante">
+        <ng-template ngbTabContent>
+          <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+            <ngb-panel title="Parte 1">
+              <ng-template ngbPanelContent>
+                <!--First row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="nombre" class="col-4 col-form-label">Nombre(s):</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="nombre"
+                             id="nombre">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="paterno" class="col-4 col-form-label">Apellido Paterno:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="paterno"
+                             id="paterno">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="materno" class="col-4 col-form-label">Apellido Materno:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="materno"
+                             id="materno">
+                    </div>
+                  </div>
+                </div>
+                <!--Second row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="rfc" class="col-4 col-form-label">Rfc:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="rfc"
+                             id="rfc">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="curp" class="col-4 col-form-label">Curp:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="curp"
+                             id="curp">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="genero" class="col-4 col-form-label">Genero:</label>
+                    <div class="col-8">
+                      <ng-select id="genero"
+                                 [options]="generoDropdown"
+                                 [placeholder]="'Selecciona un genero'"
+                                 (selected)="onTipoSelected($event)"
+                                 [noFilter]="'Infinity'">
+                      </ng-select>
+                    </div>
+                  </div>
+                </div>
+                <!--Third row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="eCivil" class="col-4 col-form-label">Estado Civil:</label>
+                    <div class="col-8">
+                      <ng-select id="eCivil"
+                                 [options]="eCivilDropdown"
+                                 [placeholder]="'Selecciona un estado civil'"
+                                 (selected)="onTipoSelected($event)"
+                                 [noFilter]="'Infinity'">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="fNacimiento" class="col-4 col-form-label">Fecha de nacimiento:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="fNacimiento"
+                             id="fNacimiento">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="edad" class="col-4 col-form-label">Edad:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="number"
+                             name="edad"
+                             id="edad">
+                    </div>
+                  </div>
+                </div>
+                <!--Forth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="paisNacimiento" class="col-4 col-form-label">Pais de nacimiento:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="paisNacimiento"
+                             id="paisNacimiento">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="entidadNacimiento" class="col-4 col-form-label">Entidad de nacimiento:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="entidadNacimiento"
+                             id="entidadNacimiento">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="nacionalidad" class="col-4 col-form-label">Nacionalidad:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="nacionalidad"
+                             id="nacionalidad">
+                    </div>
+                  </div>
+                </div>
+                <!--Fifth row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="ife" class="col-4 col-form-label">Ife:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="ife"
+                             id="ife">
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Parte 2">
+              <ng-template ngbPanelContent>
+                <div class="form-group row" style="margin-top: 50px">
+                  <!--first row-->
+                  <div class="col-4 row">
+                    <label for="domicilio" class="col-4 col-form-label">Domicilio:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="domicilio"
+                             id="domicilio">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="noInterior" class="col-4 col-form-label">No.Interior:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="noInterior"
+                             id="noInterior">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="noExterior" class="col-4 col-form-label">No.Exterior:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="noExterior"
+                             id="noExterior">
+                    </div>
+                  </div>
+                </div>
+                <!--second row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="colonia" class="col-4 col-form-label">Colonia:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="colonia"
+                             id="colonia">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="municipio" class="col-4 col-form-label">Municipio/Del.:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="municipio"
+                             id="municipio">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="entidad" class="col-4 col-form-label">Entidad:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="entidad"
+                             id="entidad">
+                    </div>
+                  </div>
+                </div>
+                <!--thirhd row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="pais" class="col-4 col-form-label">Pais:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="pais"
+                             id="pais">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="entreCalles" class="col-4 col-form-label">Entre calles:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="entreCalles"
+                             id="entreCalles">
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Parte 3">
+              <!--first row-->
+              <ng-template ngbPanelContent>
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="correo" class="col-4 col-form-label">Correo:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="email"
+                             name="correo"
+                             id="correo">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="celular" class="col-4 col-form-label">Celular:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="tel"
+                             name="celular"
+                             id="celular">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="telefono" class="col-4 col-form-label">Telefono:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="tel"
+                             name="telefono"
+                             id="telefono">
+                    </div>
+                  </div>
+                </div>
+                <!--second row-->
+                <div class="form-group row" style="margin-top: 50px">
+                  <div class="col-4 row">
+                    <label for="puesto" class="col-4 col-form-label">Puesto:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="puesto"
+                             id="puesto">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="antiguedad" class="col-4 col-form-label">Anios de antiguedad:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="text"
+                             name="antiguedad"
+                             id="antiguedad">
+                    </div>
+                  </div>
+                  <div class="col-4 row">
+                    <label for="ingreso" class="col-4 col-form-label">Ingreso Mensual:</label>
+                    <div class="col-8">
+                      <input class="form-control"
+                             type="number"
+                             name="ingreso"
+                             id="ingreso">
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Referencias">
+        <ng-template ngbTabContent>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="ref1Nombre" class="col-4 col-form-label">Nombre(s):</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref1Nombre"
+                       id="ref1Nombre">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="ref1Paterno" class="col-4 col-form-label">Apellido Paterno:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref1Paterno"
+                       id="ref1Paterno">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="ref1Materno" class="col-4 col-form-label">Apellido Materno:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref1Materno"
+                       id="ref1Materno">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="ref1Tel" class="col-4 col-form-label">Telefono:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref1Tel"
+                       id="ref1Tel">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="ref1Parentesco" class="col-4 col-form-label">Parentesco:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref1Parentesco"
+                       id="ref1Parentesco">
+              </div>
+            </div>
+          </div>
+          <!--Second Reference-->
+          <hr>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="ref2Nombre" class="col-4 col-form-label">Nombre(s):</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref2Nombre"
+                       id="ref2Nombre">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="ref2Paterno" class="col-4 col-form-label">Apellido Paterno:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref2Paterno"
+                       id="ref2Paterno">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="ref2Materno" class="col-4 col-form-label">Apellido Materno:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref2Materno"
+                       id="ref2Materno">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="ref2Tel" class="col-4 col-form-label">Telefono:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref2Tel"
+                       id="ref2Tel">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="ref2Parentesco" class="col-4 col-form-label">Parentesco:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="ref2Parentesco"
+                       id="ref2Parentesco">
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Datos de disposicion">
+        <ng-template ngbTabContent>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="clabe" class="col-4 col-form-label">No. de CLABE:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="clabe"
+                       id="clabe">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="banco" class="col-4 col-form-label">Institucion bancaria:</label>
+              <div class="col-8">
+                <input class="form-control"
+                       type="text"
+                       name="banco"
+                       id="banco">
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Notas">
+        <ng-template ngbTabContent>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-12 row">
+              <label for="notas" class="col-1 col-form-label">Notas:</label>
+              <div class="col-6">
+                <textarea class="form-control"
+                       [rows]="5"
+                       name="notas"
+                       id="notas">
+                </textarea>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Anexos">
+        <ng-template ngbTabContent>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="informePago" class="col-1 col-form-label">Informe de pago:</label>
+              <div class="col-6">
+                <input class="form-control"
+                          name="notas"
+                          id="informePago">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="tarjeton1" class="col-1 col-form-label">Tarjeton 1:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="tarjeton1"
+                       id="tarjeton1">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="tarjeton2" class="col-1 col-form-label">Tarjeton 2:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="notas"
+                       id="tarjeton2">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="identificacion" class="col-1 col-form-label">Identificacion:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="identificacion"
+                       id="identificacion">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="estadoCuenta" class="col-1 col-form-label">Estado de cuenta:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="estadoCuenta"
+                       id="estadoCuenta">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="guiaEnvio" class="col-1 col-form-label">Guia para envio:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="guiaEnvio"
+                       id="guiaEnvio">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="listaNominal" class="col-1 col-form-label">Lista nominal:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="listaNominal"
+                       id="listaNominal">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="solicitudFirmar" class="col-1 col-form-label">Solicitud a firmar:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="solicitudFirmar"
+                       id="solicitudFirmar">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" style="margin-top: 20px">
+            <div class="col-12 row">
+              <label for="tablaAmortizacion" class="col-1 col-form-label">Tabla amortizacion:</label>
+              <div class="col-6">
+                <input class="form-control"
+                       name="tablaAmortizacion"
+                       id="tablaAmortizacion">
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</form>
+

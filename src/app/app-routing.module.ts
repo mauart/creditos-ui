@@ -15,13 +15,17 @@ import { RecotizacionInicialComponent } from './recotizacion-inicial/recotizacio
 import {CompraDeudaComponent} from './compra-deuda/compra-deuda.component';
 import {MensajesComponent} from './plantillas/mensajes/mensajes.component';
 import {CorreosComponent} from './plantillas/correos/correos.component';
+import {SolicitudComponent} from './solicitudes/solicitud/solicitud.component';
+import {UsuarioComponent} from './usuarios/usuario/usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
   { path: 'home', component: HomeComponent, canActivate: [ LoggedInGuard ], children: [
       { path: 'solicitudes', component: SolicitudesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'solicitudes/solicitud', component: SolicitudComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'solicitantes', component: SolicitantesComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'usuarios', component: UsuariosComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'usuarios/usuario', component: UsuarioComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'prod-conv', component: ProductosConveniosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'plantillas', component: PlantillasComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'plantilla/mensaje', component: MensajesComponent, canActivateChild: [ LoggedInGuard ] },
