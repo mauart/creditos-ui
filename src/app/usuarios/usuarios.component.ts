@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -56,10 +57,12 @@ export class UsuariosComponent implements OnInit {
       'creacion': '2018-07-03',
     } ];
 
-  public constructor() {
+  public constructor(private router: Router) {
     this.length = this.data.length;
   }
-
+  onNuevo() {
+    this.router.navigate(['/home/usuarios/usuario']);
+  }
   public ngOnInit(): void {
     this.onChangeTable(this.config);
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-solicitudes',
@@ -10,7 +11,7 @@ import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SolicitudesComponent implements OnInit {
 
-  constructor(private config: NgbTabsetConfig) {
+  constructor(private config: NgbTabsetConfig, private router: Router) {
     this.config.justify = 'center';
     this.config.type = 'pills';
   }
@@ -19,5 +20,9 @@ export class SolicitudesComponent implements OnInit {
   }
   onTabChange(t) {
     console.log(t);
+  }
+  onNueva() {
+    console.log('nueva solicitud');
+    this.router.navigate(['/home/solicitudes/solicitud']);
   }
 }
