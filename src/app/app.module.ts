@@ -46,6 +46,7 @@ import { MensajesComponent } from './plantillas/mensajes/mensajes.component';
 import { CorreosComponent } from './plantillas/correos/correos.component';
 import { SolicitudComponent } from './solicitudes/solicitud/solicitud.component';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
+import { SolicitanteComponent } from './solicitantes/solicitante/solicitante.component';
 
 
 const config = environment.FIREBASE;
@@ -77,7 +78,8 @@ const config = environment.FIREBASE;
     MensajesComponent,
     CorreosComponent,
     SolicitudComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    SolicitanteComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ import {MensajesComponent} from './plantillas/mensajes/mensajes.component';
 import {CorreosComponent} from './plantillas/correos/correos.component';
 import {SolicitudComponent} from './solicitudes/solicitud/solicitud.component';
 import {UsuarioComponent} from './usuarios/usuario/usuario.component';
+import {SolicitanteComponent} from './solicitantes/solicitante/solicitante.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [ LoggedInGuard ] },
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'solicitudes', component: SolicitudesComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'solicitudes/solicitud', component: SolicitudComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'solicitantes', component: SolicitantesComponent, canActivateChild: [ LoggedInGuard ] },
+      { path: 'solicitantes/solicitante', component: SolicitanteComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'usuarios', component: UsuariosComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'usuarios/usuario', component: UsuarioComponent, canActivateChild: [ LoggedInGuard ] },
       { path: 'prod-conv', component: ProductosConveniosComponent, canActivateChild: [ LoggedInGuard ] },
