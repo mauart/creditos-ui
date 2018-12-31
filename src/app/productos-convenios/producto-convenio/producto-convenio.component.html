@@ -1,0 +1,208 @@
+<div style="float: right">
+  <button class="btn btn-warning" (click)="onCancelar()">Cancelar</button>
+  <button class="btn btn-primary" style="margin-left: 5px">Guardar</button>
+</div>
+<div style="margin-top: 60px">
+  <ngb-tabset>
+    <ngb-tab title="Nuevo Convenio/Producto">
+      <ng-template ngbTabContent>
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" [closeOthers]="true">
+          <ngb-panel title="Parte 1">
+            <ng-template ngbPanelContent>
+              <div class="form-group row" style="margin-top: 50px">
+                <!--Estado form input-->
+                <div class="col-4 row">
+                  <label for="activo" class="col-3 col-form-label">Activo:</label>
+                  <div class="col-9">
+                    <ng-select id="activo"
+                               [options]="activoDropdown"
+                               [placeholder]="'Selecciona un activo'"
+                               (selected)="onTipoSelected($event)"
+                               [noFilter]="'Infinity'">
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-4 row">
+                  <label for="fInicio" class="col-3 col-form-label">Inicio:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="fInicio"
+                           id="fInicio">
+                  </div>
+                </div>
+                <div class="col-4 row">
+                  <label for="fFin" class="col-3 col-form-label">Fin:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="fFin"
+                           id="fFin">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 50px">
+                <div class="col-4 row">
+                  <label for="financiera" class="col-3 col-form-label">Financiera:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="financiera"
+                           id="financiera">
+                  </div>
+                </div>
+                <div class="col-4 row">
+                  <label for="producto" class="col-3 col-form-label">Producto:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="producto"
+                           id="producto">
+                  </div>
+                </div>
+                <div class="col-4 row">
+                  <label for="convenio" class="col-3 col-form-label">Convenio:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="convenio"
+                           id="convenio">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" style="margin-top: 50px">
+                <div class="col-4 row">
+                  <label for="tipo" class="col-3 col-form-label">Tipo:</label>
+                  <div class="col-9">
+                    <ng-select id="tipo"
+                               [options]="tipoDropdown"
+                               [placeholder]="'Selecciona un tipo'"
+                               (selected)="onTipoSelected($event)"
+                               [noFilter]="'Infinity'">
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-4 row">
+                  <label for="fFin" class="col-3 col-form-label">Periodo:</label>
+                  <div class="col-9">
+                    <ng-select id="periodo"
+                               [options]="periodoDropdown"
+                               [placeholder]="'Selecciona un periodo'"
+                               (selected)="onTipoSelected($event)"
+                               [noFilter]="'Infinity'">
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 50px">
+                <div class="col-6 row">
+                  <label for="fFin" class="col-2 col-form-label">Notas:</label>
+                  <div class="col-10">
+                    <textarea id="notas" class="col-12" [rows]="6" name="notas">
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel title="Parte 2">
+            <ng-template ngbPanelContent>
+              <small>Selecciona los datos que son requeridos para la tabla del convenio.</small>
+              <br>
+              <small>Introduce el nombre que deseas que aparezca.</small>
+              <br>
+              <small>Capacidad (requerido)</small>
+              <br>
+              <small>Plazo (requerido)</small>
+              <br>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                <label class="form-check-label" for="exampleRadios1">
+                  Tasa Mensual
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Tasa Anual
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                  Cuota
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                <label class="form-check-label" for="exampleRadios4">
+                  CAT
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                <label class="form-check-label" for="exampleRadios5">
+                  Otra 1
+                </label>
+                <input type="text" class="form-control col-3 text__inline">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">
+                  Otra 2
+                </label>
+                <input type="text" class="form-control col-3 text__inline">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="option7">
+                <label class="form-check-label" for="exampleRadios7">
+                  Otra 3
+                </label>
+                <input type="text" class="form-control col-3 text__inline">
+              </div>
+              <div style="float: right; margin-bottom: 15px">
+                <button class="btn btn-primary" (click)="onCancelar()">Agregar renglon</button>
+              </div>
+              <div style="margin-top: 30px">
+                <ng-table [config]="config"
+                          (tableChanged)="onChangeTable(config)"
+                          (cellClicked)="onCellClick($event)"
+                          [rows]="rows" [columns]="columns">
+                </ng-table>
+              </div>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel title="Parte 3">
+            <ng-template ngbPanelContent>
+              <small>Agregar formula para calculo de datos de salida</small>
+              <div class="form-group row" style="margin-top: 50px">
+                <div class="col-4 row">
+                  <label for="descuento" class="col-3 col-form-label">Descuento:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="descuento"
+                           id="descuento">
+                  </div>
+                </div>
+                <div class="col-4 row">
+                  <label for="capital" class="col-3 col-form-label">Capital:</label>
+                  <div class="col-9">
+                    <input class="form-control"
+                           type="text"
+                           name="capital"
+                           id="capital">
+                  </div>
+                </div>
+              </div>
+              <div style="float: right; margin-bottom: 15px">
+                <button class="btn btn-primary" style="margin-left: 5px">Calcular</button>
+              </div>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
