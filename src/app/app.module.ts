@@ -89,6 +89,7 @@ const config = environment.FIREBASE;
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     FormsModule,
     AppRoutingModule,
     SidebarModule.forRoot(),

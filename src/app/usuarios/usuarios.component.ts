@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {UsuariosService} from '../services/usuarios.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -11,11 +12,11 @@ export class UsuariosComponent implements OnInit {
   public columns: Array<any> = [
     {title: 'Nombre', name: 'nombre', sort: 'asc', filtering: {filterString: '', placeholder: 'Filtrar por nombre'}},
     {title: 'Direccion', name: 'direccion'},
-    {title: 'Telefono', name: 'tel'},
-    {title: 'oordinador / Gerente.', name: 'manager'},
-    {title: 'Status', name: 'status'},
-    {title: 'User', name: 'creacion'},
-    {title: 'Creacion.', name: 'creacion'}
+    {title: 'Telefono', name: 'tMovil'},
+    {title: 'coordinador / Gerente.', name: 'rango'},
+    {title: 'Status', name: 'activo'},
+    {title: 'User', name: 'usuario'},
+    {title: 'Creacion', name: 'fInicio'}
   ];
   public page = 1;
   public itemsPerPage = 10;
@@ -30,41 +31,22 @@ export class UsuariosComponent implements OnInit {
     className: ['table-striped', 'table-bordered']
   };
 
-  private data: Array<any> = [
-    {
-      'nombre': 'Victoria Cantrell',
-      'direccion': 'dir 1',
-      'tel': '9999999999',
-      'manager': 'George Jung',
-      'status': 'activo',
-      'solicitante': 'sol 1',
-      'creacion': '2018-07-01',
-    }, {
-      'nombre': 'Natalia Cantrell',
-      'direccion': 'dir 2',
-      'tel': '9999999999',
-      'manager': 'George Jung',
-      'status': 'activo',
-      'solicitante': 'sol 2',
-      'creacion': '2018-07-02',
-    }, {
-      'nombre': 'Kenna Cantrell',
-      'direccion': 'dir 3',
-      'tel': '9999999998',
-      'manager': 'George Jung',
-      'status': 'activo',
-      'solicitante': 'sol e',
-      'creacion': '2018-07-03',
-    } ];
+  private data: Array<any> = [];
 
-  public constructor(private router: Router) {
+  public constructor(private router: Router, private usuariosService: UsuariosService) {
     this.length = this.data.length;
+    this.usuariosService.todo$.subscribe((data) => {
+      this.data = data;
+    });
   }
   onNuevo() {
     this.router.navigate(['/home/usuarios/usuario']);
   }
   public ngOnInit(): void {
-    this.onChangeTable(this.config);
+    this.usuariosService.todo$.subscribe((data) => {
+      this.data = data;
+      this.onChangeTable(this.config);
+    });
   }
 
   public changePage(page: any, data: Array<any> = this.data): Array<any> {

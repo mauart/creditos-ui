@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 import {IOption} from 'ng-select';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../../services/authentication.service';
+import {UsuariosService} from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-usuario',
@@ -27,7 +29,31 @@ export class UsuarioComponent implements OnInit {
     {label: 'Coordinador', value: 'coordinador'},
     {label: 'Gerente', value: 'gerente'}
   ];
-  constructor(private config: NgbTabsetConfig, private router: Router) {
+  public sucursalDropdown: Array<IOption> = [
+    {label: 'CDMX', value: 'cdmx'},
+    {label: 'Guadalajara', value: 'gdl'}
+  ];
+  public userInfo = {
+    nombre: '',
+    tipo: '',
+    activo: '',
+    usuario: '',
+    password: '',
+    rango: '',
+    fInicio: '',
+    fFin: '',
+    sucursal: '',
+    tMovil: '',
+    tFijo: '',
+    email: '',
+    direccion: '',
+    colonia: '',
+    ciudad: '',
+    estado: '',
+    cp: ''
+  };
+
+  constructor(private config: NgbTabsetConfig, private router: Router, private authService: AuthenticationService, private usuariosService: UsuariosService) {
     this.config.justify = 'center';
     this.config.type = 'pills';
   }
@@ -38,4 +64,25 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
   }
 
+  onTipoSelected(event) {
+    this.userInfo.tipo = event.value;
+  }
+
+  onActivoSelected(event) {
+    this.userInfo.activo = event.value;
+  }
+
+  onCordinadorSelected(event) {
+    this.userInfo.rango = event.value;
+  }
+  onSucursalSelected(event) {
+    this.userInfo.sucursal = event.value;
+  }
+  onSave() {
+    console.log(this.userInfo);
+    this.authService.signup(this.userInfo.email, this.userInfo.password).then(() => {
+      console.log('user has been created');
+      this.usuariosService.addUsuario(this.userInfo);
+    });
+  }
 }

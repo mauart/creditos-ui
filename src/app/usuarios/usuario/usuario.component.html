@@ -1,181 +1,207 @@
 <div style="float: right">
   <button class="btn btn-warning" (click)="onCancelar()">Cancelar</button>
-  <button class="btn btn-primary" style="margin-left: 5px">Guardar</button>
+  <button class="btn btn-primary" (click)="onSave()" style="margin-left: 5px">Guardar</button>
 </div>
 <div style="margin-top: 60px">
   <ngb-tabset>
     <ngb-tab title="Usuario Nuevo">
       <ng-template ngbTabContent>
-        <div class="form-group row" style="margin-top: 50px">
-          <!--Estado form input-->
-          <div class="col-4 row">
-            <label for="nombre" class="col-3 col-form-label">Nombre:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="nombre"
-                     id="nombre">
+        <form>
+          <div class="form-group row" style="margin-top: 50px">
+            <!--Estado form input-->
+            <div class="col-4 row">
+              <label for="nombre" class="col-3 col-form-label">Nombre:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       name="nombre"
+                       [(ngModel)]="userInfo.nombre"
+                       id="nombre">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="tipo" class="col-3 col-form-label">Tipo:</label>
+              <div class="col-9">
+                <ng-select id="tipo"
+                           [options]="tipoDropdown"
+                           [placeholder]="'Selecciona un tipo'"
+                           (selected)="onTipoSelected($event)"
+                           [noFilter]="'Infinity'">
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="activo" class="col-3 col-form-label">Activo:</label>
+              <div class="col-9">
+                <ng-select id="activo"
+                           [options]="activoDropdown"
+                           [placeholder]="'Selecciona un activo'"
+                           (selected)="onActivoSelected($event)"
+                           [noFilter]="'Infinity'">
+                </ng-select>
+              </div>
             </div>
           </div>
-          <div class="col-4 row">
-            <label for="tipo" class="col-3 col-form-label">Tipo:</label>
-            <div class="col-9">
-              <ng-select id="tipo"
-                         [options]="tipoDropdown"
-                         [placeholder]="'Selecciona un tipo'"
-                         (selected)="onTipoSelected($event)"
-                         [noFilter]="'Infinity'">
-              </ng-select>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="usuario" class="col-3 col-form-label">Usuario:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.usuario"
+                       name="usuario"
+                       id="usuario">
+              </div>
             </div>
-          </div>
-          <div class="col-4 row">
-            <label for="activo" class="col-3 col-form-label">Activo:</label>
-            <div class="col-9">
-              <ng-select id="activo"
-                         [options]="activoDropdown"
-                         [placeholder]="'Selecciona un activo'"
-                         (selected)="onTipoSelected($event)"
-                         [noFilter]="'Infinity'">
-              </ng-select>
+            <div class="col-4 row">
+              <label for="password" class="col-3 col-form-label">Password:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.password"
+                       name="password"
+                       id="password">
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="form-group row" style="margin-top: 50px">
-          <div class="col-4 row">
-            <label for="usuario" class="col-3 col-form-label">Usuario:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="usuario"
-                     id="usuario">
-            </div>
-          </div>
-          <div class="col-4 row">
-            <label for="password" class="col-3 col-form-label">Password:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="password"
-                     id="password">
-            </div>
-          </div>
-          <div class="col-4 row">
-            <label for="cordinador" class="col-3 col-form-label">Rango:</label>
-            <div class="col-9">
-              <ng-select id="cordinador"
-                         [options]="cordinadorDropdown"
-                         [placeholder]="'Selecciona un rango'"
-                         (selected)="onTipoSelected($event)"
-                         [noFilter]="'Infinity'">
-              </ng-select>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group row" style="margin-top: 50px">
-          <div class="col-4 row">
-            <label for="fInicio" class="col-3 col-form-label">Fecha inicio:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="fInicio"
-                     id="fInicio">
-            </div>
-          </div>
-          <div class="col-4 row">
-            <label for="fFin" class="col-3 col-form-label">Fecha fin:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="fFin"
-                     id="fFin">
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group row" style="margin-top: 50px">
-          <div class="col-4 row">
-            <label for="tMovil" class="col-3 col-form-label">Telefono movil:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="tel"
-                     name="tMovil"
-                     id="tMovil">
+            <div class="col-4 row">
+              <label for="cordinador" class="col-3 col-form-label">Rango:</label>
+              <div class="col-9">
+                <ng-select id="cordinador"
+                           [options]="cordinadorDropdown"
+                           [placeholder]="'Selecciona un rango'"
+                           (selected)="onCordinadorSelected($event)"
+                           [noFilter]="'Infinity'">
+                </ng-select>
+              </div>
             </div>
           </div>
 
-          <div class="col-4 row">
-            <label for="tFijo" class="col-3 col-form-label">Telefono fijo:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="tel"
-                     name="tFijo"
-                     id="tFijo">
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="fInicio" class="col-3 col-form-label">Fecha inicio:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.fInicio"
+                       name="fInicio"
+                       id="fInicio">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="fFin" class="col-3 col-form-label">Fecha fin:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.fFin"
+                       name="fFin"
+                       id="fFin">
+              </div>
+            </div>
+            <div class="col-4 row">
+              <label for="activo" class="col-3 col-form-label">Sucursal:</label>
+              <div class="col-9">
+                <ng-select id="sucursal"
+                           [options]="sucursalDropdown"
+                           [placeholder]="'Selecciona una sucursal'"
+                           (selected)="onSucursalSelected($event)"
+                           [noFilter]="'Infinity'">
+                </ng-select>
+              </div>
             </div>
           </div>
 
-          <div class="col-4 row">
-            <label for="email" class="col-3 col-form-label">Correo:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="email"
-                     name="email"
-                     id="email">
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="tMovil" class="col-3 col-form-label">Telefono movil:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="tel"
+                       [(ngModel)]="userInfo.tMovil"
+                       name="tMovil"
+                       id="tMovil">
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="form-group row" style="margin-top: 50px">
-          <div class="col-4 row">
-            <label for="direccion" class="col-3 col-form-label">Direccion:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="direccion"
-                     id="direccion">
-            </div>
-          </div>
 
-          <div class="col-4 row">
-            <label for="colonia" class="col-3 col-form-label">Colonia:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="colonia"
-                     id="colonia">
+            <div class="col-4 row">
+              <label for="tFijo" class="col-3 col-form-label">Telefono fijo:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="tel"
+                       [(ngModel)]="userInfo.tFijo"
+                       name="tFijo"
+                       id="tFijo">
+              </div>
             </div>
-          </div>
 
-          <div class="col-4 row">
-            <label for="ciudad" class="col-3 col-form-label">Ciudad:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="ciudad"
-                     id="ciudad">
+            <div class="col-4 row">
+              <label for="email" class="col-3 col-form-label">Correo:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="email"
+                       [(ngModel)]="userInfo.email"
+                       name="email"
+                       id="email">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="form-group row" style="margin-top: 50px">
-          <div class="col-4 row">
-            <label for="estado" class="col-3 col-form-label">Estado:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="estado"
-                     id="estado">
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="direccion" class="col-3 col-form-label">Direccion:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.direccion"
+                       name="direccion"
+                       id="direccion">
+              </div>
             </div>
-          </div>
 
-          <div class="col-4 row">
-            <label for="cp" class="col-3 col-form-label">CP:</label>
-            <div class="col-9">
-              <input class="form-control"
-                     type="text"
-                     name="cp"
-                     id="cp">
+            <div class="col-4 row">
+              <label for="colonia" class="col-3 col-form-label">Colonia:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.colonia"
+                       name="colonia"
+                       id="colonia">
+              </div>
+            </div>
+
+            <div class="col-4 row">
+              <label for="ciudad" class="col-3 col-form-label">Ciudad:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.ciudad"
+                       name="ciudad"
+                       id="ciudad">
+              </div>
             </div>
           </div>
-        </div>
+          <div class="form-group row" style="margin-top: 50px">
+            <div class="col-4 row">
+              <label for="estado" class="col-3 col-form-label">Estado:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.estado"
+                       name="estado"
+                       id="estado">
+              </div>
+            </div>
+
+            <div class="col-4 row">
+              <label for="cp" class="col-3 col-form-label">CP:</label>
+              <div class="col-9">
+                <input class="form-control"
+                       type="text"
+                       [(ngModel)]="userInfo.cp"
+                       name="cp"
+                       id="cp">
+              </div>
+            </div>
+          </div>
+        </form>
       </ng-template>
     </ngb-tab>
   </ngb-tabset>
