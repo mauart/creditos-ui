@@ -53,7 +53,8 @@ export class UsuarioComponent implements OnInit {
     cp: ''
   };
 
-  constructor(private config: NgbTabsetConfig, private router: Router, private authService: AuthenticationService, private usuariosService: UsuariosService) {
+  constructor(private config: NgbTabsetConfig, private router: Router,
+              private authService: AuthenticationService, private usuariosService: UsuariosService) {
     this.config.justify = 'center';
     this.config.type = 'pills';
   }
