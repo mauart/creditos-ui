@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SolicitantesService, SolicitanteModel} from '../../services/solicitantes.service';
 
 @Component({
   selector: 'app-solicitantes-tabla',
@@ -38,51 +39,32 @@ export class SolicitantesTablaComponent implements OnInit {
     className: ['table-striped', 'table-bordered']
   };
 
-  private data: Array<any> = [
-    {
-      'nombre': 'Victoria Cantrell',
-      'tipo': 'nueva',
-      'correo': 'correo@gmail.com',
-      'tel': '9999999999',
-      'colonia': 'colonia 1',
-      'ciudad': 'ciudad 1',
-      'estado': 'estado 1',
-      'asesor': 'Miguel Felix',
-      'origen': 'web 1',
-      'creacion': '2018-07-01',
+  private data: Array<any> = [];
 
-
-
-    }, {
-      'nombre': 'Natalia Cantrell',
-      'tipo': 'nueva 1',
-      'correo': 'correo1@gmail.com',
-      'tel': '9999999998',
-      'colonia': 'colonia 2',
-      'ciudad': 'ciudad 2',
-      'estado': 'estado 2',
-      'asesor': 'Miguel Felix',
-      'origen': 'web 2',
-      'creacion': '2018-07-02',
-    }, {
-      'nombre': 'Kenna Cantrell',
-      'tipo': 'nueva 3',
-      'correo': 'correo3@gmail.com',
-      'tel': '9999999999',
-      'colonia': 'colonia 3',
-      'ciudad': 'ciudad 3',
-      'estado': 'estado 3',
-      'asesor': 'Miguel Felix',
-      'origen': 'web 3',
-      'creacion': '2018-07-03',
-    } ];
-
-  public constructor() {
+  public constructor(private solicitantesService: SolicitantesService) {
     this.length = this.data.length;
   }
 
   public ngOnInit(): void {
-    this.onChangeTable(this.config);
+    this.solicitantesService.solicitantesTodo$.subscribe((data: Array<SolicitanteModel>) => {
+      const tableData = data.map((solicitante: SolicitanteModel) => {
+        return {
+          nombre: `${ solicitante.nombre }  ${ solicitante.aPaterno } ${ solicitante.aMaterno }`,
+          tipo: solicitante.tipo,
+          correo: solicitante.correo,
+          tel: solicitante.celular,
+          colonia: solicitante.colonia,
+          ciudad: solicitante.ciudad,
+          estado: solicitante.estado,
+          asesor: '',
+          origen: solicitante.origen,
+          creacion: solicitante.creacion || ' '
+        }
+      });
+      this.data = tableData;
+      this.onChangeTable(this.config);
+    });
+
   }
 
   public changePage(page: any, data: Array<any> = this.data): Array<any> {
