@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SolicitudesService, SolicitudesModel} from '../../services/solicitudes.service';
 
 @Component({
   selector: 'app-solicitudes-tabla',
@@ -37,45 +38,30 @@ export class SolicitudesTablaComponent implements OnInit {
     className: ['table-striped', 'table-bordered']
   };
 
-  private data: Array<any> = [
-    {
-      'nombre': 'Victoria Cantrell',
-      'nss': '12345678',
-      'tel': '9999999999',
-      'status': 'soltera',
-      'origen': 'web 1',
-      'creacion': '2018-07-00',
-      'tipo': 'tipo 1',
-      'solicitante': 'sol 1',
-      'notas': 'mas notas'
-    }, {
-      'nombre': 'Natalia Cantrell',
-      'nss': '1234567',
-      'tel': '9999999999',
-      'status': 'soltera',
-      'origen': 'web 2',
-      'creacion': '2018-07-08',
-      'tipo': 'tipo 2',
-      'solicitante': 'sol 2',
-      'notas': 'mas notas'
-    }, {
-      'nombre': 'Kenna Cantrell',
-      'nss': '123456',
-      'tel': '9999999999',
-      'status': 'soltera',
-      'origen': 'web 3',
-      'creacion': '2018-07-10',
-      'tipo': 'tipo 3',
-      'solicitante': 'sol 3',
-      'notas': 'mas notas'
-    } ];
+  private data: Array<any> = [];
 
-  public constructor() {
+  public constructor(private solicitudService: SolicitudesService) {
     this.length = this.data.length;
   }
 
   public ngOnInit(): void {
-    this.onChangeTable(this.config);
+    this.solicitudService.solicitudesTodo$.subscribe((data: Array<SolicitudesModel>) => {
+      this.data = data.map((value: SolicitudesModel) => {
+        return {
+          nombre: `${ value.nombre } ${value.paterno} ${value.materno}`,
+          nss: value.nss,
+          tel: value.telefono,
+          status: ' ',
+          origen: value.origen,
+          creacion: value.creacion,
+          tipo: value.tipo,
+          solicitante: (value as any).solicitante ||  ' ',
+          notas: value.notas
+        }
+      });
+      this.onChangeTable(this.config);
+    })
+
   }
 
   public changePage(page: any, data: Array<any> = this.data): Array<any> {

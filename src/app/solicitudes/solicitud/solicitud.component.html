@@ -1,6 +1,6 @@
 <div style="float: right">
   <button class="btn btn-warning" (click)="onCancelar()">Cancelar</button>
-  <button class="btn btn-primary" style="margin-left: 5px">Guardar</button>
+  <button class="btn btn-primary" style="margin-left: 5px" (click)="onGuardar()">Guardar</button>
 </div>
 <form>
   <div style="margin-top: 60px">
@@ -18,6 +18,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.estado"
                              name="estado"
                              id="estado">
                     </div>
@@ -28,6 +29,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.origen"
                              name="origen"
                              id="origen">
                     </div>
@@ -41,18 +43,20 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.fCreacion"
                              name="fCreacion"
                              id="fCreacion">
                     </div>
                   </div>
                   <!--Fecha solicitud form input-->
                   <div class="col-4 row">
-                    <label for="fechaolicitud" class="col-3 col-form-label">Inicio solicitud:</label>
+                    <label for="fechaSolicitud" class="col-3 col-form-label">Inicio solicitud:</label>
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
-                             name="fechaolicitud"
-                             id="fechaolicitud">
+                             [(ngModel)]="solicitudModel.fechaSolicitud"
+                             name="fechaSolicitud"
+                             id="fechaSolicitud">
                     </div>
                   </div>
                   <!--Fecha solicitud completada form input-->
@@ -61,6 +65,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.fechaSolCom"
                              name="fechaSolCom"
                              id="fechaSolCom">
                     </div>
@@ -87,7 +92,7 @@
                       <ng-select id="periodo"
                                  [options]="periodoDropdown"
                                  [placeholder]="'Selecciona un periodo'"
-                                 (selected)="onTipoSelected($event)"
+                                 (selected)="onPeriodoSelected($event)"
                                  [noFilter]="'Infinity'">
                       </ng-select>
                     </div>
@@ -99,7 +104,7 @@
                       <ng-select id="plazo"
                                  [options]="plazoDropdown"
                                  [placeholder]="'Selecciona un plazo'"
-                                 (selected)="onTipoSelected($event)"
+                                 (selected)="onPlazoSelected($event)"
                                  [noFilter]="'Infinity'">
                       </ng-select>
                     </div>
@@ -113,6 +118,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.montoSol"
                              name="montoSol"
                              id="montoSol">
                     </div>
@@ -123,6 +129,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.descuento"
                              name="descuento"
                              id="descuento">
                     </div>
@@ -133,6 +140,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.pagare"
                              name="pagare"
                              id="pagare">
                     </div>
@@ -147,7 +155,7 @@
                       <ng-select id="producto"
                                  [options]="productoDropdown"
                                  [placeholder]="'Selecciona un producto'"
-                                 (selected)="onTipoSelected($event)"
+                                 (selected)="onProductoSelected($event)"
                                  [noFilter]="'Infinity'">
                       </ng-select>
                     </div>
@@ -158,6 +166,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.nss"
                              name="nss"
                              id="nss">
                     </div>
@@ -168,6 +177,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.matricula"
                              name="matricula"
                              id="matricula">
                     </div>
@@ -185,6 +195,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.grupo"
                              name="grupo"
                              id="grupo">
                     </div>
@@ -195,6 +206,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.dependencia"
                              name="dependencia"
                              id="dependencia">
                     </div>
@@ -208,6 +220,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.tasaMensual"
                              name="tasaMensual"
                              id="tasaMensual">
                     </div>
@@ -218,6 +231,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.tasaAnual"
                              name="tasaAnual"
                              id="tasaAnual">
                     </div>
@@ -228,6 +242,7 @@
                     <div class="col-9">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.cat"
                              name="cat"
                              id="cat">
                     </div>
@@ -241,6 +256,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.primerPago"
                              name="primerPago"
                              id="primerPago">
                     </div>
@@ -251,6 +267,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.ultimo"
                              name="ultimo"
                              id="ultimo">
                     </div>
@@ -264,6 +281,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.liquidoBase"
                              name="liquidoBase"
                              id="liquidoBase">
                     </div>
@@ -274,6 +292,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.capacidadPago"
                              name="capacidadPago"
                              id="capacidadPago">
                     </div>
@@ -287,6 +306,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.montoDeducciones"
                              name="montoDeducciones"
                              id="montoDeducciones">
                     </div>
@@ -297,6 +317,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.terminoDeducciones"
                              name="terminoDeducciones"
                              id="terminoDeducciones">
                     </div>
@@ -310,6 +331,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.financiera"
                              name="financiera"
                              id="financiera">
                     </div>
@@ -320,6 +342,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.financieraProducto"
                              name="financieraProducto"
                              id="financieraProducto">
                     </div>
@@ -329,6 +352,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.convenio"
                              name="convenio"
                              id="convenio">
                     </div>
@@ -351,6 +375,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.nombre"
                              name="nombre"
                              id="nombre">
                     </div>
@@ -360,6 +385,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.paterno"
                              name="paterno"
                              id="paterno">
                     </div>
@@ -369,6 +395,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.materno"
                              name="materno"
                              id="materno">
                     </div>
@@ -381,6 +408,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.rfc"
                              name="rfc"
                              id="rfc">
                     </div>
@@ -390,6 +418,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.curp"
                              name="curp"
                              id="curp">
                     </div>
@@ -400,7 +429,7 @@
                       <ng-select id="genero"
                                  [options]="generoDropdown"
                                  [placeholder]="'Selecciona un genero'"
-                                 (selected)="onTipoSelected($event)"
+                                 (selected)="onGeneroSelected($event)"
                                  [noFilter]="'Infinity'">
                       </ng-select>
                     </div>
@@ -414,7 +443,7 @@
                       <ng-select id="eCivil"
                                  [options]="eCivilDropdown"
                                  [placeholder]="'Selecciona un estado civil'"
-                                 (selected)="onTipoSelected($event)"
+                                 (selected)="onECivilSelected($event)"
                                  [noFilter]="'Infinity'">
                       </ng-select>
                     </div>
@@ -424,6 +453,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.fNacimiento"
                              name="fNacimiento"
                              id="fNacimiento">
                     </div>
@@ -433,6 +463,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.edad"
                              name="edad"
                              id="edad">
                     </div>
@@ -445,6 +476,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.paisNacimiento"
                              name="paisNacimiento"
                              id="paisNacimiento">
                     </div>
@@ -454,6 +486,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.entidadNacimiento"
                              name="entidadNacimiento"
                              id="entidadNacimiento">
                     </div>
@@ -463,6 +496,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.nacionalidad"
                              name="nacionalidad"
                              id="nacionalidad">
                     </div>
@@ -475,6 +509,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.ife"
                              name="ife"
                              id="ife">
                     </div>
@@ -491,6 +526,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.domicilio"
                              name="domicilio"
                              id="domicilio">
                     </div>
@@ -500,6 +536,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.noInterior"
                              name="noInterior"
                              id="noInterior">
                     </div>
@@ -509,6 +546,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.noExterior"
                              name="noExterior"
                              id="noExterior">
                     </div>
@@ -521,6 +559,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.colonia"
                              name="colonia"
                              id="colonia">
                     </div>
@@ -530,6 +569,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.municipio"
                              name="municipio"
                              id="municipio">
                     </div>
@@ -539,6 +579,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.entidad"
                              name="entidad"
                              id="entidad">
                     </div>
@@ -551,6 +592,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.pais"
                              name="pais"
                              id="pais">
                     </div>
@@ -560,6 +602,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.entreCalles"
                              name="entreCalles"
                              id="entreCalles">
                     </div>
@@ -576,6 +619,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="email"
+                             [(ngModel)]="solicitudModel.correo"
                              name="correo"
                              id="correo">
                     </div>
@@ -585,6 +629,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="tel"
+                             [(ngModel)]="solicitudModel.celular"
                              name="celular"
                              id="celular">
                     </div>
@@ -594,6 +639,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="tel"
+                             [(ngModel)]="solicitudModel.telefono"
                              name="telefono"
                              id="telefono">
                     </div>
@@ -606,6 +652,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.puesto"
                              name="puesto"
                              id="puesto">
                     </div>
@@ -615,6 +662,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="text"
+                             [(ngModel)]="solicitudModel.antiguedad"
                              name="antiguedad"
                              id="antiguedad">
                     </div>
@@ -624,6 +672,7 @@
                     <div class="col-8">
                       <input class="form-control"
                              type="number"
+                             [(ngModel)]="solicitudModel.ingreso"
                              name="ingreso"
                              id="ingreso">
                     </div>
@@ -642,6 +691,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref1Nombre"
                        name="ref1Nombre"
                        id="ref1Nombre">
               </div>
@@ -651,6 +701,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref1Paterno"
                        name="ref1Paterno"
                        id="ref1Paterno">
               </div>
@@ -660,6 +711,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref1Materno"
                        name="ref1Materno"
                        id="ref1Materno">
               </div>
@@ -671,6 +723,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref1Tel"
                        name="ref1Tel"
                        id="ref1Tel">
               </div>
@@ -680,6 +733,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref1Parentesco"
                        name="ref1Parentesco"
                        id="ref1Parentesco">
               </div>
@@ -693,6 +747,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref2Nombre"
                        name="ref2Nombre"
                        id="ref2Nombre">
               </div>
@@ -702,6 +757,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref2Paterno"
                        name="ref2Paterno"
                        id="ref2Paterno">
               </div>
@@ -711,6 +767,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref2Materno"
                        name="ref2Materno"
                        id="ref2Materno">
               </div>
@@ -722,6 +779,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref2Tel"
                        name="ref2Tel"
                        id="ref2Tel">
               </div>
@@ -731,6 +789,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.ref2Parentesco"
                        name="ref2Parentesco"
                        id="ref2Parentesco">
               </div>
@@ -746,6 +805,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.clabe"
                        name="clabe"
                        id="clabe">
               </div>
@@ -755,6 +815,7 @@
               <div class="col-8">
                 <input class="form-control"
                        type="text"
+                       [(ngModel)]="solicitudModel.banco"
                        name="banco"
                        id="banco">
               </div>
@@ -770,6 +831,7 @@
               <div class="col-6">
                 <textarea class="form-control"
                        [rows]="5"
+                       [(ngModel)]="solicitudModel.notas"
                        name="notas"
                        id="notas">
                 </textarea>
@@ -785,7 +847,8 @@
               <label for="informePago" class="col-1 col-form-label">Informe de pago:</label>
               <div class="col-6">
                 <input class="form-control"
-                          name="notas"
+                          name="informePago"
+                          [(ngModel)]="solicitudModel.informePago"
                           id="informePago">
               </div>
             </div>
@@ -796,6 +859,7 @@
               <div class="col-6">
                 <input class="form-control"
                        name="tarjeton1"
+                       [(ngModel)]="solicitudModel.tarjeton1"
                        id="tarjeton1">
               </div>
             </div>
@@ -806,6 +870,7 @@
               <div class="col-6">
                 <input class="form-control"
                        name="notas"
+                       [(ngModel)]="solicitudModel.tarjeton2"
                        id="tarjeton2">
               </div>
             </div>
@@ -816,6 +881,7 @@
               <div class="col-6">
                 <input class="form-control"
                        name="identificacion"
+                       [(ngModel)]="solicitudModel.identificacion"
                        id="identificacion">
               </div>
             </div>
@@ -826,6 +892,7 @@
               <div class="col-6">
                 <input class="form-control"
                        name="estadoCuenta"
+                       [(ngModel)]="solicitudModel.estadoCuenta"
                        id="estadoCuenta">
               </div>
             </div>
@@ -835,6 +902,7 @@
               <label for="guiaEnvio" class="col-1 col-form-label">Guia para envio:</label>
               <div class="col-6">
                 <input class="form-control"
+                       [(ngModel)]="solicitudModel.guiaEnvio"
                        name="guiaEnvio"
                        id="guiaEnvio">
               </div>
@@ -846,6 +914,7 @@
               <div class="col-6">
                 <input class="form-control"
                        name="listaNominal"
+                       [(ngModel)]="solicitudModel.listaNominal"
                        id="listaNominal">
               </div>
             </div>
@@ -855,6 +924,7 @@
               <label for="solicitudFirmar" class="col-1 col-form-label">Solicitud a firmar:</label>
               <div class="col-6">
                 <input class="form-control"
+                       [(ngModel)]="solicitudModel.solicitudFirmar"
                        name="solicitudFirmar"
                        id="solicitudFirmar">
               </div>
@@ -865,6 +935,7 @@
               <label for="tablaAmortizacion" class="col-1 col-form-label">Tabla amortizacion:</label>
               <div class="col-6">
                 <input class="form-control"
+                       [(ngModel)]="solicitudModel.tablaAmortizacion"
                        name="tablaAmortizacion"
                        id="tablaAmortizacion">
               </div>
