@@ -80,10 +80,10 @@ export class UsuarioComponent implements OnInit {
     this.userInfo.sucursal = event.value;
   }
   onSave() {
-    console.log(this.userInfo);
     this.authService.signup(this.userInfo.email, this.userInfo.password).then(() => {
-      console.log('user has been created');
-      this.usuariosService.addUsuario(this.userInfo);
+      this.usuariosService.addUsuario(this.userInfo).then(() => {
+        this.router.navigate(['/home/usuarios']);
+      });
     });
   }
 }

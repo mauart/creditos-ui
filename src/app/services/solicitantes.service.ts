@@ -45,4 +45,8 @@ export class SolicitantesService {
     return this.solicitantes.add(tempSolicitante);
   }
 
+  getSolicitantes() {
+    return this.solicitantes.valueChanges();
+  }
+
 }

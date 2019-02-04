@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {SolicitantesService, SolicitanteModel} from '../../services/solicitantes.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {SolicitantesService, SolicitanteModel} from '../../services/solicitantes
   templateUrl: './solicitantes-tabla.component.html',
   styleUrls: ['./solicitantes-tabla.component.scss']
 })
-export class SolicitantesTablaComponent implements OnInit {
+export class SolicitantesTablaComponent implements OnInit, AfterViewInit {
   public rows: Array<any> = [];
   public columns: Array<any> = [
     {title: 'Nombre', name: 'nombre', filtering: {filterString: '', placeholder: 'Filtrar por nombre'}},
@@ -44,7 +44,27 @@ export class SolicitantesTablaComponent implements OnInit {
   public constructor(private solicitantesService: SolicitantesService) {
     this.length = this.data.length;
   }
-
+  public ngAfterViewInit() {
+    console.log('fetching, solicitantes');
+    this.solicitantesService.getSolicitantes().subscribe((data: Array<SolicitanteModel>) => {
+      const tableData = data.map((solicitante: SolicitanteModel) => {
+        return {
+          nombre: `${ solicitante.nombre }  ${ solicitante.aPaterno } ${ solicitante.aMaterno }`,
+          tipo: solicitante.tipo,
+          correo: solicitante.correo,
+          tel: solicitante.celular,
+          colonia: solicitante.colonia,
+          ciudad: solicitante.ciudad,
+          estado: solicitante.estado,
+          asesor: '',
+          origen: solicitante.origen,
+          creacion: solicitante.creacion || ' '
+        }
+      });
+      this.data = tableData;
+      this.onChangeTable(this.config);
+    });
+  }
   public ngOnInit(): void {
     this.solicitantesService.solicitantesTodo$.subscribe((data: Array<SolicitanteModel>) => {
       const tableData = data.map((solicitante: SolicitanteModel) => {

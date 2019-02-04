@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UsuariosService} from '../services/usuarios.service';
 
@@ -7,7 +7,7 @@ import {UsuariosService} from '../services/usuarios.service';
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.scss']
 })
-export class UsuariosComponent implements OnInit {
+export class UsuariosComponent implements OnInit, AfterViewInit {
   public rows: Array<any> = [];
   public columns: Array<any> = [
     {title: 'Nombre', name: 'nombre', sort: 'asc', filtering: {filterString: '', placeholder: 'Filtrar por nombre'}},
@@ -48,7 +48,14 @@ export class UsuariosComponent implements OnInit {
       this.onChangeTable(this.config);
     });
   }
-
+  public ngAfterViewInit() {
+    console.log('init this view');
+    this.usuariosService.getUsuarios().subscribe(data => {
+      console.log('this is the data', data);
+      this.data = data;
+      this.onChangeTable(this.config);
+    });
+  }
   public changePage(page: any, data: Array<any> = this.data): Array<any> {
     const start = (page.page - 1) * page.itemsPerPage;
     const end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;

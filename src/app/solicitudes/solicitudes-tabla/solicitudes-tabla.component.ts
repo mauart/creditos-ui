@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {SolicitudesService, SolicitudesModel} from '../../services/solicitudes.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {SolicitudesService, SolicitudesModel} from '../../services/solicitudes.s
   templateUrl: './solicitudes-tabla.component.html',
   styleUrls: ['./solicitudes-tabla.component.scss']
 })
-export class SolicitudesTablaComponent implements OnInit {
+export class SolicitudesTablaComponent implements OnInit, AfterViewInit {
 
   public rows: Array<any> = [];
   public columns: Array<any> = [
@@ -44,6 +44,25 @@ export class SolicitudesTablaComponent implements OnInit {
     this.length = this.data.length;
   }
 
+  public ngAfterViewInit() {
+    this.solicitudService.getSolicitudes().subscribe((data: Array<SolicitudesModel>) => {
+      this.data = data.map((value: SolicitudesModel) => {
+        return {
+          nombre: `${ value.nombre } ${value.paterno} ${value.materno}`,
+          nss: value.nss,
+          tel: value.telefono,
+          status: ' ',
+          origen: value.origen,
+          creacion: value.creacion,
+          tipo: value.tipo,
+          solicitante: (value as any).solicitante ||  ' ',
+          notas: value.notas
+        }
+      });
+      this.onChangeTable(this.config);
+    });
+  }
+
   public ngOnInit(): void {
     this.solicitudService.solicitudesTodo$.subscribe((data: Array<SolicitudesModel>) => {
       this.data = data.map((value: SolicitudesModel) => {
@@ -60,8 +79,7 @@ export class SolicitudesTablaComponent implements OnInit {
         }
       });
       this.onChangeTable(this.config);
-    })
-
+    });
   }
 
   public changePage(page: any, data: Array<any> = this.data): Array<any> {

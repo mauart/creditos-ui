@@ -105,4 +105,8 @@ export class SolicitudesService {
     tempSolicitante.creacion = new Date().toLocaleDateString();
     return this.solicitudes.add(tempSolicitante);
   }
+
+  getSolicitudes() {
+    return this.solicitudes.valueChanges();
+  }
 }

@@ -91,12 +91,9 @@ export class UsuariosService {
       estado: string,
       cp: string
     } = { ...usuario };
-
-    this.tasks.add(usuarioCopy).then(() => {
-      console.log('a');
-    }).catch((error) => {
-      console.log('error', error);
-    })
+    return this.tasks.add(usuarioCopy);
   }
-
+  getUsuarios() {
+    return this.tasks.valueChanges();
+  }
 }
